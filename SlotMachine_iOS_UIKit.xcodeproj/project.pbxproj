@@ -58,13 +58,29 @@
 			children = (
 				B649315125BB859700BAF03F /* AppDelegate.swift */,
 				B649315325BB859700BAF03F /* SceneDelegate.swift */,
-				B649315525BB859700BAF03F /* ViewController.swift */,
-				B649315725BB859700BAF03F /* Main.storyboard */,
+				B649316C25BCCDCF00BAF03F /* Controllers */,
+				B649316B25BCCDC600BAF03F /* Views */,
 				B649315A25BB859A00BAF03F /* Assets.xcassets */,
 				B649315C25BB859A00BAF03F /* LaunchScreen.storyboard */,
 				B649315F25BB859A00BAF03F /* Info.plist */,
 			);
 			path = SlotMachine_iOS_UIKit;
+			sourceTree = "<group>";
+		};
+		B649316B25BCCDC600BAF03F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B649315725BB859700BAF03F /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B649316C25BCCDCF00BAF03F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B649315525BB859700BAF03F /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +302,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77MX867GR8;
 				INFOPLIST_FILE = SlotMachine_iOS_UIKit/Info.plist;
@@ -293,8 +310,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.abdelrahmantealab.SlotMachine-iOS-UIKit";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.abdelrahmantealab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -305,6 +323,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77MX867GR8;
 				INFOPLIST_FILE = SlotMachine_iOS_UIKit/Info.plist;
@@ -312,8 +331,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "io.github.abdelrahmantealab.SlotMachine-iOS-UIKit";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.abdelrahmantealab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
