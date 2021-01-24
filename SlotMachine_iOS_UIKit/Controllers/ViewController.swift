@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Spruce
 
 class ViewController: UIViewController {
 
+    
     @IBOutlet weak var coinsLabel: UILabel!
     @IBOutlet weak var jackpotLabel: UILabel!
     @IBOutlet weak var betLabel: UILabel!
@@ -32,7 +34,7 @@ class ViewController: UIViewController {
     let leftReel:Array<UIImage> = [#imageLiteral(resourceName: "icon_1"),#imageLiteral(resourceName: "icon_2"),#imageLiteral(resourceName: "icon_3"),#imageLiteral(resourceName: "icon_4"),#imageLiteral(resourceName: "icon_5"),#imageLiteral(resourceName: "icon_6"),#imageLiteral(resourceName: "icon_7"),#imageLiteral(resourceName: "icon_8")]
     let centerReel:Array<UIImage> = [#imageLiteral(resourceName: "icon_6"),#imageLiteral(resourceName: "icon_7"),#imageLiteral(resourceName: "icon_8"),#imageLiteral(resourceName: "icon_1"),#imageLiteral(resourceName: "icon_2"),#imageLiteral(resourceName: "icon_3"),#imageLiteral(resourceName: "icon_4"),#imageLiteral(resourceName: "icon_5")]
     let rightReel:Array<UIImage> = [#imageLiteral(resourceName: "icon_6"),#imageLiteral(resourceName: "icon_7"),#imageLiteral(resourceName: "icon_8"),#imageLiteral(resourceName: "icon_4"),#imageLiteral(resourceName: "icon_5"),#imageLiteral(resourceName: "icon_1"),#imageLiteral(resourceName: "icon_2"),#imageLiteral(resourceName: "icon_3")]
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +42,26 @@ class ViewController: UIViewController {
         
     }
     
+    func animateImages(images:[UIImageView],reel:Array<UIImage>) {
+
+        for image in images {
+            image.animationImages = reel
+            image.animationRepeatCount = 2
+            image.animationDuration = 1
+            image.startAnimating()
+        }
+    }
+    
     @IBAction func startPressed(_ sender: UIButton) {
         
+        let leftImages = [leftTopImage!,leftMiddleImage!,leftBottomImage!]
+        let centerImages = [centerTopImage!,centerMiddleImage!,centerBottomImage!]
+        let rightImages = [rightTopImage!,rightMiddleImage!,rightBottomImage!]
+        
+        animateImages(images: leftImages, reel: leftReel)
+        animateImages(images: centerImages, reel: centerReel)
+        animateImages(images: rightImages, reel: rightReel)
+
         leftTopImage.image = leftReel[Int.random(in: 0...leftReel.count-1)]
         leftMiddleImage.image = leftReel[Int.random(in: 0...leftReel.count-1)]
         leftBottomImage.image = leftReel[Int.random(in: 0...leftReel.count-1)]

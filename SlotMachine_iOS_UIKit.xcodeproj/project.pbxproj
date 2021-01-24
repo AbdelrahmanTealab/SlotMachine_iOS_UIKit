@@ -13,9 +13,13 @@
 		B649315925BB859700BAF03F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B649315725BB859700BAF03F /* Main.storyboard */; };
 		B649315B25BB859A00BAF03F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B649315A25BB859A00BAF03F /* Assets.xcassets */; };
 		B649315E25BB859A00BAF03F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B649315C25BB859A00BAF03F /* LaunchScreen.storyboard */; };
+		F92259CC4FC57A66D1120FE1 /* Pods_SlotMachine_iOS_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0672C6FE53B99341D421195A /* Pods_SlotMachine_iOS_UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0672C6FE53B99341D421195A /* Pods_SlotMachine_iOS_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlotMachine_iOS_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		681F0842D12CB3E9B1147FFE /* Pods-SlotMachine_iOS_UIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlotMachine_iOS_UIKit.debug.xcconfig"; path = "Target Support Files/Pods-SlotMachine_iOS_UIKit/Pods-SlotMachine_iOS_UIKit.debug.xcconfig"; sourceTree = "<group>"; };
+		B5BBE5FA29C0C0790CC636CA /* Pods-SlotMachine_iOS_UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlotMachine_iOS_UIKit.release.xcconfig"; path = "Target Support Files/Pods-SlotMachine_iOS_UIKit/Pods-SlotMachine_iOS_UIKit.release.xcconfig"; sourceTree = "<group>"; };
 		B649314E25BB859700BAF03F /* SlotMachine_iOS_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlotMachine_iOS_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B649315125BB859700BAF03F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B649315325BB859700BAF03F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F92259CC4FC57A66D1120FE1 /* Pods_SlotMachine_iOS_UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AEBEDFA4955D5A16F5346256 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				681F0842D12CB3E9B1147FFE /* Pods-SlotMachine_iOS_UIKit.debug.xcconfig */,
+				B5BBE5FA29C0C0790CC636CA /* Pods-SlotMachine_iOS_UIKit.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B649314525BB859700BAF03F = {
 			isa = PBXGroup;
 			children = (
 				B649315025BB859700BAF03F /* SlotMachine_iOS_UIKit */,
 				B649314F25BB859700BAF03F /* Products */,
+				AEBEDFA4955D5A16F5346256 /* Pods */,
+				D5FA615EC85D10BBB84B9A80 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +100,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		D5FA615EC85D10BBB84B9A80 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0672C6FE53B99341D421195A /* Pods_SlotMachine_iOS_UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -90,9 +115,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B649316225BB859A00BAF03F /* Build configuration list for PBXNativeTarget "SlotMachine_iOS_UIKit" */;
 			buildPhases = (
+				77D084017DE2C255B03C7F7A /* [CP] Check Pods Manifest.lock */,
 				B649314A25BB859700BAF03F /* Sources */,
 				B649314B25BB859700BAF03F /* Frameworks */,
 				B649314C25BB859700BAF03F /* Resources */,
+				3996C13BDFAFB0A9F6D1A1E6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -147,6 +174,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3996C13BDFAFB0A9F6D1A1E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SlotMachine_iOS_UIKit/Pods-SlotMachine_iOS_UIKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SlotMachine_iOS_UIKit/Pods-SlotMachine_iOS_UIKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SlotMachine_iOS_UIKit/Pods-SlotMachine_iOS_UIKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77D084017DE2C255B03C7F7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SlotMachine_iOS_UIKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B649314A25BB859700BAF03F /* Sources */ = {
@@ -299,6 +368,7 @@
 		};
 		B649316325BB859A00BAF03F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 681F0842D12CB3E9B1147FFE /* Pods-SlotMachine_iOS_UIKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -320,6 +390,7 @@
 		};
 		B649316425BB859A00BAF03F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5BBE5FA29C0C0790CC636CA /* Pods-SlotMachine_iOS_UIKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
