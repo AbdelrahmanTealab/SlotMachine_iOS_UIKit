@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var jackpotLabel: UILabel!
     @IBOutlet weak var betLabel: UILabel!
     @IBOutlet weak var winJackpotImage: UIImageView!
-    
+    @IBOutlet weak var raysJackpotImage: UIImageView!
     
     @IBOutlet weak var leftTopImage: UIImageView!
     @IBOutlet weak var leftMiddleImage: UIImageView!
@@ -76,7 +76,8 @@ class ViewController: UIViewController {
 
         if leftMiddleImage.image == centerMiddleImage.image &&  leftMiddleImage.image == rightMiddleImage.image{
             
-            winJackpotImage.image = #imageLiteral(resourceName: "stars")
+            winJackpotImage.image = #imageLiteral(resourceName: "mega_win")
+            raysJackpotImage.image = #imageLiteral(resourceName: "rays")
             leftFrame.alpha = 1
             centerFrame.alpha = 1
             rightFrame.alpha = 1
@@ -85,6 +86,7 @@ class ViewController: UIViewController {
         else{
             
             winJackpotImage.image = nil
+            raysJackpotImage.image = nil
             leftFrame.alpha = 0
             centerFrame.alpha = 0
             rightFrame.alpha = 0

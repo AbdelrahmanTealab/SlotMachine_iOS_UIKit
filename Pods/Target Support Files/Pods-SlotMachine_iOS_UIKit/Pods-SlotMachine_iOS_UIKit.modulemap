@@ -1,0 +1,6 @@
+framework module Pods_SlotMachine_iOS_UIKit {
+  umbrella header "Pods-SlotMachine_iOS_UIKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
