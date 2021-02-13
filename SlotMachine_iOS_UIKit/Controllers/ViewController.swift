@@ -39,12 +39,63 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        reset()
+        var bottomPerspectiveTransform = CATransform3DIdentity
+        bottomPerspectiveTransform.m34 = 1.0 / -200
+        bottomPerspectiveTransform = CATransform3DRotate(bottomPerspectiveTransform, -45.0 * .pi / 360.0, 180.0,  0.0, 0.0)
         
+        var topPerspectiveTransform = CATransform3DIdentity
+        topPerspectiveTransform.m34 = 1.0 / 200
+        topPerspectiveTransform = CATransform3DRotate(topPerspectiveTransform, -45.0 * .pi / 360.0, 180.0,  0.0, 0.0)
+        
+        leftBottomImage.layer.transform = bottomPerspectiveTransform
+        centerBottomImage.layer.transform = bottomPerspectiveTransform
+        rightBottomImage.layer.transform = bottomPerspectiveTransform
+
+        leftTopImage.layer.transform = topPerspectiveTransform
+        centerTopImage.layer.transform = topPerspectiveTransform
+        rightTopImage.layer.transform = topPerspectiveTransform
     }
     
     func animateImages(images:[UIImageView],reel:Array<UIImage>) {
+        
+        for (index,image) in images.enumerated() {
+            UIView.animate(
+                withDuration: 0.2,
+                delay: 0.0,
+                options: [.autoreverse],
+                animations: {
+                    if image == images[1]
+                    {
+                        UIView.setAnimationRepeatCount(5)
+                        var frame = image.frame
+                        frame.origin.y += 5
+                        image.frame = frame
+                    }
+                    else{
+                        UIView.setAnimationRepeatCount(5)
+                        var frame = image.frame
+                        frame.origin.y -= 5
+                        image.frame = frame
+                    }
+                }, completion: {finished in
 
-        for image in images {
+               print("animation finished")
+                    image.image = reel[Int.random(in: 0...reel.count-1)]
+                    //self.alwaysWin(imageView: image)
+                    if image == images[1]
+                    {
+                        var frame = image.frame
+                        frame.origin.y -= 5
+                        image.frame = frame
+                    }
+                    else{
+                        var frame = image.frame
+                        frame.origin.y += 5
+                        image.frame = frame
+                    }
+              }
+            )
             image.animationImages = reel
             image.animationRepeatCount = 2
             image.animationDuration = 1
@@ -52,7 +103,18 @@ class ViewController: UIViewController {
         }
     }
     
+    func alwaysWin(imageView: UIImageView) {
+        imageView.image = leftReel[0]
+    }
+    
     @IBAction func startPressed(_ sender: UIButton) {
+        reset()
+        sender.isUserInteractionEnabled = false
+        sender.setImage(#imageLiteral(resourceName: "start_active_btn"), for: .normal)
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { _ in
+            sender.isUserInteractionEnabled = true
+            sender.setImage(#imageLiteral(resourceName: "start_btn"), for: .normal)
+        })
         
         let leftImages = [leftTopImage!,leftMiddleImage!,leftBottomImage!]
         let centerImages = [centerTopImage!,centerMiddleImage!,centerBottomImage!]
@@ -62,36 +124,38 @@ class ViewController: UIViewController {
         animateImages(images: centerImages, reel: centerReel)
         animateImages(images: rightImages, reel: rightReel)
 
-        leftTopImage.image = leftReel[Int.random(in: 0...leftReel.count-1)]
-        leftMiddleImage.image = leftReel[Int.random(in: 0...leftReel.count-1)]
-        leftBottomImage.image = leftReel[Int.random(in: 0...leftReel.count-1)]
-
-        centerTopImage.image = centerReel[Int.random(in: 0...centerReel.count-1)]
-        centerMiddleImage.image = centerReel[Int.random(in: 0...centerReel.count-1)]
-        centerBottomImage.image = centerReel[Int.random(in: 0...centerReel.count-1)]
-
-        rightTopImage.image = rightReel[Int.random(in: 0...rightReel.count-1)]
-        rightMiddleImage.image = rightReel[Int.random(in: 0...rightReel.count-1)]
-        rightBottomImage.image = rightReel[Int.random(in: 0...rightReel.count-1)]
-
-        if leftMiddleImage.image == centerMiddleImage.image &&  leftMiddleImage.image == rightMiddleImage.image{
+        Timer.scheduledTimer(withTimeInterval: 2.1, repeats: false, block: { [self] _ in
+            checkWinning(leftImage: leftMiddleImage.image!, centerImage: centerMiddleImage.image!, rightImage: rightMiddleImage.image!)
+        })
+        
+    }
+    
+    func checkWinning(leftImage: UIImage, centerImage: UIImage, rightImage: UIImage){
+        if leftImage == centerImage &&  leftImage == rightImage{
             
             winJackpotImage.image = #imageLiteral(resourceName: "mega_win")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
             leftFrame.alpha = 1
             centerFrame.alpha = 1
             rightFrame.alpha = 1
+            
+            print("win")
 
         }
         else{
             
-            winJackpotImage.image = nil
-            raysJackpotImage.image = nil
-            leftFrame.alpha = 0
-            centerFrame.alpha = 0
-            rightFrame.alpha = 0
+            reset()
+            
+            print("lose")
+
         }
-        
+    }
+    func reset() {
+        winJackpotImage.image = nil
+        raysJackpotImage.image = nil
+        leftFrame.alpha = 0
+        centerFrame.alpha = 0
+        rightFrame.alpha = 0
     }
     
 }
