@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B63D623125D7B1980077FAEF /* spinning.wav in Resources */ = {isa = PBXBuildFile; fileRef = B63D623025D7B1980077FAEF /* spinning.wav */; };
+		B63D623425D7B3730077FAEF /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = B63D623325D7B3730077FAEF /* win.wav */; };
+		B63D623B25D7B8ED0077FAEF /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = B63D623A25D7B8ED0077FAEF /* lose.wav */; };
 		B649315225BB859700BAF03F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649315125BB859700BAF03F /* AppDelegate.swift */; };
 		B649315425BB859700BAF03F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649315325BB859700BAF03F /* SceneDelegate.swift */; };
 		B649315625BB859700BAF03F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649315525BB859700BAF03F /* ViewController.swift */; };
@@ -20,6 +23,9 @@
 		0672C6FE53B99341D421195A /* Pods_SlotMachine_iOS_UIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SlotMachine_iOS_UIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		681F0842D12CB3E9B1147FFE /* Pods-SlotMachine_iOS_UIKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlotMachine_iOS_UIKit.debug.xcconfig"; path = "Target Support Files/Pods-SlotMachine_iOS_UIKit/Pods-SlotMachine_iOS_UIKit.debug.xcconfig"; sourceTree = "<group>"; };
 		B5BBE5FA29C0C0790CC636CA /* Pods-SlotMachine_iOS_UIKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SlotMachine_iOS_UIKit.release.xcconfig"; path = "Target Support Files/Pods-SlotMachine_iOS_UIKit/Pods-SlotMachine_iOS_UIKit.release.xcconfig"; sourceTree = "<group>"; };
+		B63D623025D7B1980077FAEF /* spinning.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = spinning.wav; sourceTree = "<group>"; };
+		B63D623325D7B3730077FAEF /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
+		B63D623A25D7B8ED0077FAEF /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
 		B649314E25BB859700BAF03F /* SlotMachine_iOS_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlotMachine_iOS_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B649315125BB859700BAF03F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B649315325BB859700BAF03F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +54,6 @@
 				681F0842D12CB3E9B1147FFE /* Pods-SlotMachine_iOS_UIKit.debug.xcconfig */,
 				B5BBE5FA29C0C0790CC636CA /* Pods-SlotMachine_iOS_UIKit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -73,6 +78,9 @@
 		B649315025BB859700BAF03F /* SlotMachine_iOS_UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				B63D623A25D7B8ED0077FAEF /* lose.wav */,
+				B63D623325D7B3730077FAEF /* win.wav */,
+				B63D623025D7B1980077FAEF /* spinning.wav */,
 				B649315125BB859700BAF03F /* AppDelegate.swift */,
 				B649315325BB859700BAF03F /* SceneDelegate.swift */,
 				B649316C25BCCDCF00BAF03F /* Controllers */,
@@ -169,6 +177,9 @@
 			files = (
 				B649315E25BB859A00BAF03F /* LaunchScreen.storyboard in Resources */,
 				B649315B25BB859A00BAF03F /* Assets.xcassets in Resources */,
+				B63D623125D7B1980077FAEF /* spinning.wav in Resources */,
+				B63D623B25D7B8ED0077FAEF /* lose.wav in Resources */,
+				B63D623425D7B3730077FAEF /* win.wav in Resources */,
 				B649315925BB859700BAF03F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

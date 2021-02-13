@@ -7,6 +7,7 @@
 
 import UIKit
 import Spruce
+import AVFoundation
 
 class ViewController: UIViewController {
 
@@ -35,6 +36,8 @@ class ViewController: UIViewController {
     let centerReel:Array<UIImage> = [#imageLiteral(resourceName: "icon_6"),#imageLiteral(resourceName: "icon_7"),#imageLiteral(resourceName: "icon_8"),#imageLiteral(resourceName: "icon_1"),#imageLiteral(resourceName: "icon_2"),#imageLiteral(resourceName: "icon_3"),#imageLiteral(resourceName: "icon_4"),#imageLiteral(resourceName: "icon_5")]
     let rightReel:Array<UIImage> = [#imageLiteral(resourceName: "icon_6"),#imageLiteral(resourceName: "icon_7"),#imageLiteral(resourceName: "icon_8"),#imageLiteral(resourceName: "icon_4"),#imageLiteral(resourceName: "icon_5"),#imageLiteral(resourceName: "icon_1"),#imageLiteral(resourceName: "icon_2"),#imageLiteral(resourceName: "icon_3")]
     
+    var player: AVAudioPlayer?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,6 +123,8 @@ class ViewController: UIViewController {
         let centerImages = [centerTopImage!,centerMiddleImage!,centerBottomImage!]
         let rightImages = [rightTopImage!,rightMiddleImage!,rightBottomImage!]
         
+        playSound(soundName: "spinning.wav")
+        
         animateImages(images: leftImages, reel: leftReel)
         animateImages(images: centerImages, reel: centerReel)
         animateImages(images: rightImages, reel: rightReel)
@@ -130,9 +135,23 @@ class ViewController: UIViewController {
         
     }
     
+    func playSound(soundName: String) {
+        let path = Bundle.main.path(forResource: soundName, ofType:nil)!
+
+        let url = URL(fileURLWithPath: path)
+
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+        } catch {
+            // couldn't load file :(
+        }
+    }
+    
     func checkWinning(leftImage: UIImage, centerImage: UIImage, rightImage: UIImage){
         if leftImage == centerImage &&  leftImage == rightImage{
             
+            playSound(soundName: "win.wav")
             winJackpotImage.image = #imageLiteral(resourceName: "mega_win")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
             leftFrame.alpha = 1
@@ -143,11 +162,9 @@ class ViewController: UIViewController {
 
         }
         else{
-            
+            playSound(soundName: "lose.wav")
             reset()
-            
             print("lose")
-
         }
     }
     func reset() {
