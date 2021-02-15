@@ -105,7 +105,16 @@ class ViewController: UIViewController {
             bet+=1
         }
         else{
-            bet-=1
+            if bet == 1 {
+                let alert = UIAlertController(title: "Hey !", message: "Why do you play if you wont bet !?", preferredStyle: UIAlertController.Style.alert)
+                
+                alert.addAction(UIAlertAction(title: "SORRY", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+
+            }
+            else{
+                bet-=1
+            }
         }
         betLabel.text = String(bet)
     }
