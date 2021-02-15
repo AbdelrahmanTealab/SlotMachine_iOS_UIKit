@@ -29,6 +29,9 @@
                                         </constraints>
                                         <state key="normal" title="↺" image="circle_btn" backgroundImage="circle_btn"/>
                                         <state key="highlighted" image="circle_btn_active"/>
+                                        <connections>
+                                            <action selector="resetPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7OA-5h-gac"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5V-65-B1W" userLabel="images view">
                                         <rect key="frame" x="39.5" y="0.0" width="315" height="128"/>
@@ -368,6 +371,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="59" height="63"/>
                                                 <state key="normal" image="arrow_back"/>
                                                 <state key="highlighted" image="arrow_active"/>
+                                                <connections>
+                                                    <action selector="changeBet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8gq-86-ziu"/>
+                                                </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8U-aD-XVz">
                                                 <rect key="frame" x="59" y="0.0" width="276" height="63"/>
@@ -399,10 +405,13 @@
                                                     <constraint firstItem="Acv-YC-yzj" firstAttribute="leading" secondItem="H8U-aD-XVz" secondAttribute="leading" id="iDQ-Ua-Lpa"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIZ-ep-V6v">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIZ-ep-V6v">
                                                 <rect key="frame" x="335" y="0.0" width="59" height="63"/>
                                                 <state key="normal" image="arrow_forward"/>
                                                 <state key="highlighted" image="arrow_forward_active"/>
+                                                <connections>
+                                                    <action selector="changeBet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="daq-lZ-IpC"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
