@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         reset()
+        /** vv This block of code here is to skew the bottom and top reel images vv **/
         var bottomPerspectiveTransform = CATransform3DIdentity
         bottomPerspectiveTransform.m34 = 1.0 / -200
         bottomPerspectiveTransform = CATransform3DRotate(bottomPerspectiveTransform, -45.0 * .pi / 360.0, 180.0,  0.0, 0.0)
@@ -62,13 +63,15 @@ class ViewController: UIViewController {
         leftTopImage.layer.transform = topPerspectiveTransform
         centerTopImage.layer.transform = topPerspectiveTransform
         rightTopImage.layer.transform = topPerspectiveTransform
-        
+
         betLabel.text = String(bet)
         coinsLabel.text = String(coins)
         jackpotLabel.text = String(jackpot)
     }
     
     func reset() {
+        /**  This block of code here is to reset the images and labels after winning or losing **/
+
         winJackpotImage.image = nil
         raysJackpotImage.image = nil
         leftFrame.alpha = 0
@@ -81,6 +84,8 @@ class ViewController: UIViewController {
     }
     
     func resetEverything() {
+        /**  This block of code here is to hard reset the entire game with the values as well **/
+
         let alert = UIAlertController(title: "WARNING", message: "You're about to reset the game, are you sure ?", preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "YES", style: UIAlertAction.Style.default, handler: { [self] (UIAlertAction) in
@@ -101,11 +106,14 @@ class ViewController: UIViewController {
     
     //MARK: - Betting
     @IBAction func changeBet(_ sender: UIButton) {
+        /**  This block of code here is to change the bet according to user's preference **/
+
         if sender.tag == 1 {
             bet+=1
         }
         else{
             if bet == 1 {
+                /**  This block of code here is to make sure the user doesnt bet below 1 coin **/
                 let alert = UIAlertController(title: "Hey !", message: "Why do you play if you wont bet !?", preferredStyle: UIAlertController.Style.alert)
                 
                 alert.addAction(UIAlertAction(title: "SORRY", style: UIAlertAction.Style.default, handler: nil))
@@ -123,7 +131,7 @@ class ViewController: UIViewController {
     
     //MARK: - spinning
     func animateImages(images:[UIImageView],reel:Array<UIImage>) {
-        
+        /**  This block of code here is to animate the reels and shuffle the images inside them  **/
         for (index,image) in images.enumerated() {
             UIView.animate(
                 withDuration: 0.2,
@@ -169,10 +177,14 @@ class ViewController: UIViewController {
     }
     
     func alwaysWin(imageView: UIImageView) {
+        /**  This block of code here is to  win everytime for debugging purposes**/
+
         imageView.image = leftReel[0]
     }
     
     @IBAction func startPressed(_ sender: UIButton) {
+        /**  This block of code here is to start the game, first we make sure the user has enough coins then proceed to call the animation function  **/
+
         if coins < bet {
             let alert = UIAlertController(title: "DENIED", message: "Insuffecient Coins, please purchase more coins to continue", preferredStyle: UIAlertController.Style.alert)
             
@@ -205,6 +217,8 @@ class ViewController: UIViewController {
             animateImages(images: centerImages, reel: centerReel)
             animateImages(images: rightImages, reel: rightReel)
 
+            /**  This block of code here is to check whether the user won or lost after the animations and images have finished shuffling **/
+
             Timer.scheduledTimer(withTimeInterval: 2.1, repeats: false, block: { [self] _ in
                 checkWinning(leftImage: leftMiddleImage.image!, centerImage: centerMiddleImage.image!, rightImage: rightMiddleImage.image!)
             })
@@ -215,6 +229,8 @@ class ViewController: UIViewController {
 
     
     func checkWinning(leftImage: UIImage, centerImage: UIImage, rightImage: UIImage){
+        /**  This block of code here is to check the user whether they won or lost and then accordingly an image and sound will be activated to show achievement **/
+
         if leftImage == centerImage &&  leftImage == rightImage{
             
             playSound(soundName: "win.wav")
@@ -240,6 +256,8 @@ class ViewController: UIViewController {
     }
     //MARK: - sounds
     func playSound(soundName: String) {
+        /**  This block of code here is to play the sounds **/
+
         let path = Bundle.main.path(forResource: soundName, ofType:nil)!
 
         let url = URL(fileURLWithPath: path)
