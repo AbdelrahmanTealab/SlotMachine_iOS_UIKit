@@ -464,6 +464,7 @@
                                                 <state key="highlighted" image="arrow_active"/>
                                                 <connections>
                                                     <action selector="changeBetBy10:" destination="BYZ-38-t0r" eventType="touchDown" id="R28-ws-jP6"/>
+                                                    <action selector="stopChangingBet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4zv-67-tv4"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H8U-aD-XVz">

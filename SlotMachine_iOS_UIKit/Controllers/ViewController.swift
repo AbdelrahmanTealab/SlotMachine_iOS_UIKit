@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     var winnings = 0
 
     var player: AVAudioPlayer?
-    var betTimer10: Timer?
+    var betTimer: Timer?
     var timeAtPress: Date?
 
     //MARK: - viewDidLoad
@@ -131,11 +131,11 @@ class ViewController: UIViewController {
         else{
             if (bet-value) < 1 {
                 /**  This block of code here is to make sure the user doesnt bet below 1 coin **/
+                betTimer?.invalidate()
                 let alert = UIAlertController(title: "Hey !", message: "Why do you play if you wont bet !?", preferredStyle: UIAlertController.Style.alert)
                 
                 alert.addAction(UIAlertAction(title: "SORRY", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
-                betTimer10?.invalidate()
                 bet = 1
             }
             else{
@@ -148,11 +148,11 @@ class ViewController: UIViewController {
     @IBAction func changeBetBy10(_ sender: UIButton) {
         timeAtPress = Date()
 
-        betTimer10 = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { [self] _ in
+        betTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { [self] _ in
             let elapsed = Date().timeIntervalSince(timeAtPress!)
             let duration = Float(elapsed)
             
-            if let myTimer = betTimer10 {
+            if let myTimer = betTimer {
                 if duration >= 9.5 {
                     betLabel.text = String(changeBet(sender: sender, value: 1000))
                 }
@@ -170,14 +170,14 @@ class ViewController: UIViewController {
     @IBAction func stopChangingBet(_ sender: UIButton) {
         //betLabel.text = String(changeBet(sender: sender, value: 100))
         let elapsed = Date().timeIntervalSince(timeAtPress!)
-        let duration = Int(elapsed)
+        let duration = Float(elapsed)
         
-        if let myTimer = betTimer10 {
-            if duration == 0 {
+        if let myTimer = betTimer {
+            if duration < 0.4 {
                 betLabel.text = String(changeBet(sender: sender, value: 1))
             }
         }
-        betTimer10?.invalidate()
+        betTimer?.invalidate()
     }
     
     
