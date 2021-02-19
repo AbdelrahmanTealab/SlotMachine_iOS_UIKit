@@ -51,6 +51,8 @@ class ViewController: UIViewController {
     var winnings = 0
 
     var player: AVAudioPlayer?
+    var betTimer10: Timer?
+    var timeAtPress: Date?
 
     //MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -121,29 +123,64 @@ class ViewController: UIViewController {
     }
     
     //MARK: - Betting
-    @IBAction func changeBet(_ sender: UIButton) {
-        /**  This block of code here is to change the bet according to user's preference **/
-
+    func changeBet(sender:UIButton,value:Int) -> Int {
+        
         if sender.tag == 1 {
-            bet+=1
+            bet+=value
         }
         else{
-            if bet == 1 {
+            if (bet-value) < 1 {
                 /**  This block of code here is to make sure the user doesnt bet below 1 coin **/
                 let alert = UIAlertController(title: "Hey !", message: "Why do you play if you wont bet !?", preferredStyle: UIAlertController.Style.alert)
                 
                 alert.addAction(UIAlertAction(title: "SORRY", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
-
+                betTimer10?.invalidate()
+                bet = 1
             }
             else{
-                bet-=1
+                bet-=value
             }
         }
-        betLabel.text = String(bet)
+        return bet
     }
     
+    @IBAction func changeBetBy10(_ sender: UIButton) {
+        timeAtPress = Date()
 
+        betTimer10 = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { [self] _ in
+            let elapsed = Date().timeIntervalSince(timeAtPress!)
+            let duration = Float(elapsed)
+            
+            if let myTimer = betTimer10 {
+                if duration >= 9.5 {
+                    betLabel.text = String(changeBet(sender: sender, value: 1000))
+                }
+                else if duration >= 5 {
+                    betLabel.text = String(changeBet(sender: sender, value: 100))
+                }
+                else {
+                    betLabel.text = String(changeBet(sender: sender, value: 10))
+                }
+            }
+
+        })
+    }
+    
+    @IBAction func stopChangingBet(_ sender: UIButton) {
+        //betLabel.text = String(changeBet(sender: sender, value: 100))
+        let elapsed = Date().timeIntervalSince(timeAtPress!)
+        let duration = Int(elapsed)
+        
+        if let myTimer = betTimer10 {
+            if duration == 0 {
+                betLabel.text = String(changeBet(sender: sender, value: 1))
+            }
+        }
+        betTimer10?.invalidate()
+    }
+    
+    
     
     //MARK: - spinning
     func animateImages(images:[UIImageView],reel:Array<UIImage>) {
