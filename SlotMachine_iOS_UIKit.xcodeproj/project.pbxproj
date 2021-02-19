@@ -17,6 +17,7 @@
 		B649315B25BB859A00BAF03F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B649315A25BB859A00BAF03F /* Assets.xcassets */; };
 		B649315E25BB859A00BAF03F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B649315C25BB859A00BAF03F /* LaunchScreen.storyboard */; };
 		B6BA825025DEF3220033C8C0 /* small_win.wav in Resources */ = {isa = PBXBuildFile; fileRef = B6BA824F25DEF3220033C8C0 /* small_win.wav */; };
+		B6BA825325E05ADF0033C8C0 /* win3_not_middle.wav in Resources */ = {isa = PBXBuildFile; fileRef = B6BA825225E05ADF0033C8C0 /* win3_not_middle.wav */; };
 		F92259CC4FC57A66D1120FE1 /* Pods_SlotMachine_iOS_UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0672C6FE53B99341D421195A /* Pods_SlotMachine_iOS_UIKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		B649315D25BB859A00BAF03F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B649315F25BB859A00BAF03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6BA824F25DEF3220033C8C0 /* small_win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = small_win.wav; sourceTree = "<group>"; };
+		B6BA825225E05ADF0033C8C0 /* win3_not_middle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win3_not_middle.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			children = (
 				B63D623A25D7B8ED0077FAEF /* lose.wav */,
 				B6BA824F25DEF3220033C8C0 /* small_win.wav */,
+				B6BA825225E05ADF0033C8C0 /* win3_not_middle.wav */,
 				B63D623325D7B3730077FAEF /* win.wav */,
 				B63D623025D7B1980077FAEF /* spinning.wav */,
 				B649315125BB859700BAF03F /* AppDelegate.swift */,
@@ -184,6 +187,7 @@
 				B63D623125D7B1980077FAEF /* spinning.wav in Resources */,
 				B63D623B25D7B8ED0077FAEF /* lose.wav in Resources */,
 				B63D623425D7B3730077FAEF /* win.wav in Resources */,
+				B6BA825325E05ADF0033C8C0 /* win3_not_middle.wav in Resources */,
 				B649315925BB859700BAF03F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

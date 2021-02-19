@@ -70,7 +70,7 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQn-3G-nOH" userLabel="Plus Coins">
+                                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQn-3G-nOH" userLabel="Plus Coins">
                                                 <rect key="frame" x="31.5" y="32" width="252" height="64"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="QlX-oL-yPC">
@@ -572,6 +572,7 @@
                         <outlet property="leftMiddleImage" destination="ef9-VG-YAW" id="rBg-zB-9U7"/>
                         <outlet property="leftTopImage" destination="Agk-3V-t1w" id="DCI-6D-aCO"/>
                         <outlet property="middleReelLine" destination="cv0-d6-VqI" id="8Q3-9c-b3H"/>
+                        <outlet property="plusCoinsUiView" destination="OQn-3G-nOH" id="Y7S-ov-bnk"/>
                         <outlet property="raysJackpotImage" destination="ofq-2V-05k" id="lnw-PD-CP6"/>
                         <outlet property="rightBottomImage" destination="tS4-H6-30d" id="ULD-KK-4v3"/>
                         <outlet property="rightFrame" destination="dMk-gl-7y0" id="UTD-HU-IyC"/>

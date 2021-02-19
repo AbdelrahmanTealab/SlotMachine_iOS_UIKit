@@ -39,6 +39,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var coinImage: UIImageView!
     @IBOutlet weak var coinGained: UILabel!
     @IBOutlet weak var coinGainedBackground: UIImageView!
+    @IBOutlet weak var plusCoinsUiView: UIView!
     
     let leftReel:Array<UIImage> = [#imageLiteral(resourceName: "icon_1"),#imageLiteral(resourceName: "icon_2"),#imageLiteral(resourceName: "icon_3"),#imageLiteral(resourceName: "icon_4"),#imageLiteral(resourceName: "icon_5"),#imageLiteral(resourceName: "icon_6"),#imageLiteral(resourceName: "icon_7"),#imageLiteral(resourceName: "icon_8")]
     let centerReel:Array<UIImage> = [#imageLiteral(resourceName: "icon_6"),#imageLiteral(resourceName: "icon_7"),#imageLiteral(resourceName: "icon_8"),#imageLiteral(resourceName: "icon_1"),#imageLiteral(resourceName: "icon_2"),#imageLiteral(resourceName: "icon_3"),#imageLiteral(resourceName: "icon_4"),#imageLiteral(resourceName: "icon_5")]
@@ -46,7 +47,7 @@ class ViewController: UIViewController {
     
     var bet = 10
     var coins = 100
-    var jackpot = 0
+    var jackpot = 5000
     var winnings = 0
 
     var player: AVAudioPlayer?
@@ -92,11 +93,7 @@ class ViewController: UIViewController {
         leftFrame.alpha = 0
         centerFrame.alpha = 0
         rightFrame.alpha = 0
-        
-        coinImage.alpha = 0
-        coinGained.alpha = 0
-        coinGainedBackground.alpha = 0
-        
+                
         coinsLabel.text = String(coins)
         betLabel.text = String(bet)
         jackpotLabel.text = String(jackpot)
@@ -223,6 +220,26 @@ class ViewController: UIViewController {
             imageView.startAnimating()
         }
     }
+    func animateCoinsGained(){
+        plusCoinsUiView.alpha = 1
+        plusCoinsUiView.frame.origin.y = 32
+        UIView.animate(
+            withDuration: 2,
+            delay: 0.0,
+            options: [.preferredFramesPerSecond60],
+            animations: { [self] in
+
+                var coinsViewFrame = plusCoinsUiView.frame
+                coinsViewFrame.origin.y -= 50
+                plusCoinsUiView.frame = coinsViewFrame
+                plusCoinsUiView.alpha = 0
+                
+            }, completion: { [self]finished in
+                var coinsViewFrame = plusCoinsUiView.frame
+                plusCoinsUiView.frame = coinsViewFrame
+            }
+        )
+    }
     
     func alwaysWin(imageView: UIImageView) {
         /**  This block of code here is to  win everytime for debugging purposes**/
@@ -297,21 +314,17 @@ class ViewController: UIViewController {
                 middleReelLine.alpha = 1
                 
                 winnings += ((bet/2) * 3) + bet
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
             }
             else {
-                playSound(soundName: "small_win.wav")
+                playSound(soundName: "win3_not_middle.wav")
                 raysJackpotImage.image = #imageLiteral(resourceName: "rays")
                 winnings += (bet/2) * 3
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
                 if reel == "top"{
@@ -339,21 +352,17 @@ class ViewController: UIViewController {
                 middleReelLine.alpha = 1
                 
                 winnings += bet*3
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
             }
             else {
-                playSound(soundName: "small_win.wav")
+                playSound(soundName: "win3_not_middle.wav")
                 raysJackpotImage.image = #imageLiteral(resourceName: "rays")
                 winnings += (bet*3)+bet
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
                 if reel == "top"{
@@ -380,21 +389,17 @@ class ViewController: UIViewController {
                 middleReelLine.alpha = 1
                 
                 winnings += (bet+Int(Float(bet)*0.25)) * 3
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
             }
             else {
-                playSound(soundName: "small_win.wav")
+                playSound(soundName: "win3_not_middle.wav")
                 raysJackpotImage.image = #imageLiteral(resourceName: "rays")
                 winnings += bet+Int(Float(bet)*0.25)
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
                 if reel == "top"{
@@ -421,21 +426,17 @@ class ViewController: UIViewController {
                 middleReelLine.alpha = 1
                 
                 winnings += (Int(bet/2) + bet) * 3
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
             }
             else {
-                playSound(soundName: "small_win.wav")
+                playSound(soundName: "win3_not_middle.wav")
                 raysJackpotImage.image = #imageLiteral(resourceName: "rays")
                 winnings += Int(bet/2) + bet
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
                 if reel == "top"{
@@ -462,21 +463,17 @@ class ViewController: UIViewController {
                 middleReelLine.alpha = 1
                 
                 winnings += (bet*2)*3
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
             }
             else {
-                playSound(soundName: "small_win.wav")
+                playSound(soundName: "win3_not_middle.wav")
                 raysJackpotImage.image = #imageLiteral(resourceName: "rays")
                 winnings += bet*2
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
                 if reel == "top"{
@@ -503,21 +500,17 @@ class ViewController: UIViewController {
                 middleReelLine.alpha = 1
                 
                 winnings += Int(Float(bet)*2.5)*3
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
             }
             else {
-                playSound(soundName: "small_win.wav")
+                playSound(soundName: "win3_not_middle.wav")
                 raysJackpotImage.image = #imageLiteral(resourceName: "rays")
                 winnings += Int(Float(bet)*2.5)
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
                 if reel == "top"{
@@ -544,21 +537,17 @@ class ViewController: UIViewController {
                 middleReelLine.alpha = 1
                 
                 winnings += jackpot
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
             }
             else {
-                playSound(soundName: "small_win.wav")
+                playSound(soundName: "win3_not_middle.wav")
                 raysJackpotImage.image = #imageLiteral(resourceName: "rays")
                 winnings += (bet*4)*3
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
                 if reel == "top"{
@@ -585,21 +574,17 @@ class ViewController: UIViewController {
                 middleReelLine.alpha = 1
                 
                 winnings += (bet*3)*3
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
             }
             else {
-                playSound(soundName: "small_win.wav")
+                playSound(soundName: "win3_not_middle.wav")
                 raysJackpotImage.image = #imageLiteral(resourceName: "rays")
                 winnings += bet*3
-                coinImage.alpha = 1
                 coinGained.text = "+\(winnings)"
-                coinGained.alpha = 1
-                coinGainedBackground.alpha = 1
+                animateCoinsGained()
                 coins += winnings
                 coinsLabel.text = String(coins)
                 if reel == "top"{
@@ -618,10 +603,8 @@ class ViewController: UIViewController {
             playSound(soundName: "small_win.wav")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
             winnings += Int(bet/2)
-            coinImage.alpha = 1
             coinGained.text = "+\(winnings)"
-            coinGained.alpha = 1
-            coinGainedBackground.alpha = 1
+            animateCoinsGained()
             coins += winnings
             coinsLabel.text = String(coins)
             if reel == "top" {
@@ -642,10 +625,8 @@ class ViewController: UIViewController {
             playSound(soundName: "small_win.wav")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
             winnings += bet
-            coinImage.alpha = 1
             coinGained.text = "+\(winnings)"
-            coinGained.alpha = 1
-            coinGainedBackground.alpha = 1
+            animateCoinsGained()
             coins += winnings
             coinsLabel.text = String(coins)
             if reel == "top" {
@@ -666,10 +647,8 @@ class ViewController: UIViewController {
             playSound(soundName: "small_win.wav")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
             winnings += bet + Int(Float(bet)*0.25)
-            coinImage.alpha = 1
             coinGained.text = "+\(winnings)"
-            coinGained.alpha = 1
-            coinGainedBackground.alpha = 1
+            animateCoinsGained()
             coins += winnings
             coinsLabel.text = String(coins)
             if reel == "top" {
@@ -690,10 +669,8 @@ class ViewController: UIViewController {
             playSound(soundName: "small_win.wav")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
             winnings += Int(bet/2) + bet
-            coinImage.alpha = 1
             coinGained.text = "+\(winnings)"
-            coinGained.alpha = 1
-            coinGainedBackground.alpha = 1
+            animateCoinsGained()
             coins += winnings
             coinsLabel.text = String(coins)
             if reel == "top" {
@@ -714,10 +691,8 @@ class ViewController: UIViewController {
             playSound(soundName: "small_win.wav")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
             winnings += bet*2
-            coinImage.alpha = 1
             coinGained.text = "+\(winnings)"
-            coinGained.alpha = 1
-            coinGainedBackground.alpha = 1
+            animateCoinsGained()
             coins += winnings
             coinsLabel.text = String(coins)
             if reel == "top" {
@@ -738,10 +713,8 @@ class ViewController: UIViewController {
             playSound(soundName: "small_win.wav")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
             winnings += Int(Float(bet)*2.5)
-            coinImage.alpha = 1
             coinGained.text = "+\(winnings)"
-            coinGained.alpha = 1
-            coinGainedBackground.alpha = 1
+            animateCoinsGained()
             coins += winnings
             coinsLabel.text = String(coins)
             if reel == "top" {
@@ -762,10 +735,8 @@ class ViewController: UIViewController {
             playSound(soundName: "small_win.wav")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
             winnings += bet * 4
-            coinImage.alpha = 1
             coinGained.text = "+\(winnings)"
-            coinGained.alpha = 1
-            coinGainedBackground.alpha = 1
+            animateCoinsGained()
             coins += winnings
             coinsLabel.text = String(coins)
             if reel == "top" {
@@ -786,10 +757,8 @@ class ViewController: UIViewController {
             playSound(soundName: "small_win.wav")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
             winnings += bet * 3
-            coinImage.alpha = 1
             coinGained.text = "+\(winnings)"
-            coinGained.alpha = 1
-            coinGainedBackground.alpha = 1
+            animateCoinsGained()
             coins += winnings
             coinsLabel.text = String(coins)
             if reel == "top" {
@@ -821,6 +790,10 @@ class ViewController: UIViewController {
                 bottomReelLine.alpha = 1
             }
             print("lose")
+        }
+        if winnings > jackpot {
+            jackpot = winnings
+            jackpotLabel.text = String(jackpot)
         }
     }
     //MARK: - sounds
