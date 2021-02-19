@@ -175,16 +175,16 @@ class ViewController: UIViewController {
                print("animation finished")
                     let randomNumber = Int.random(in: 0...100)
                     var chosenImage = "icon_1"
-                    if randomNumber <=  10{
+                    if randomNumber <=  17{
                         chosenImage = "icon_1"
                         print("reel \(index): \(randomNumber)  |  chosen image: \(chosenImage)")
-                    }else if randomNumber <= 25 {
+                    }else if randomNumber <= 40 {
                         chosenImage = "icon_2"
                         print("reel \(index): \(randomNumber)  |  chosen image: \(chosenImage)")
-                    }else if randomNumber <= 45 {
+                    }else if randomNumber <= 55 {
                         chosenImage = "icon_3"
                         print("reel \(index): \(randomNumber)  |  chosen image: \(chosenImage)")
-                    }else if randomNumber <= 65 {
+                    }else if randomNumber <= 70 {
                         chosenImage = "icon_4"
                         print("reel \(index): \(randomNumber)  |  chosen image: \(chosenImage)")
                     }else if randomNumber <= 80 {
@@ -193,7 +193,7 @@ class ViewController: UIViewController {
                     }else if randomNumber <= 90 {
                         chosenImage = "icon_6"
                         print("reel \(index): \(randomNumber)  |  chosen image: \(chosenImage)")
-                    }else if randomNumber <= 98 {
+                    }else if randomNumber <= 95 {
                         chosenImage = "icon_8"
                         print("reel \(index): \(randomNumber)  |  chosen image: \(chosenImage)")
                     }else if randomNumber <= 100 {
