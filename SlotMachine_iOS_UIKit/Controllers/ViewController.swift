@@ -175,25 +175,25 @@ class ViewController: UIViewController {
                print("animation finished")
                     let randomNumber = Int.random(in: 0...100)
                     var chosenImage = "icon_1"
-                    if randomNumber <=  20{
+                    if randomNumber <=  10{
                         chosenImage = "icon_1"
                         print("reel \(index): \(randomNumber)  |  chosen image: \(chosenImage)")
-                    }else if randomNumber <= 35 {
+                    }else if randomNumber <= 25 {
                         chosenImage = "icon_2"
                         print("reel \(index): \(randomNumber)  |  chosen image: \(chosenImage)")
-                    }else if randomNumber <= 50 {
+                    }else if randomNumber <= 45 {
                         chosenImage = "icon_3"
                         print("reel \(index): \(randomNumber)  |  chosen image: \(chosenImage)")
                     }else if randomNumber <= 65 {
                         chosenImage = "icon_4"
                         print("reel \(index): \(randomNumber)  |  chosen image: \(chosenImage)")
-                    }else if randomNumber <= 77 {
+                    }else if randomNumber <= 80 {
                         chosenImage = "icon_5"
                         print("reel \(index): \(randomNumber)  |  chosen image: \(chosenImage)")
-                    }else if randomNumber <= 87 {
+                    }else if randomNumber <= 90 {
                         chosenImage = "icon_6"
                         print("reel \(index): \(randomNumber)  |  chosen image: \(chosenImage)")
-                    }else if randomNumber <= 95 {
+                    }else if randomNumber <= 98 {
                         chosenImage = "icon_8"
                         print("reel \(index): \(randomNumber)  |  chosen image: \(chosenImage)")
                     }else if randomNumber <= 100 {
@@ -296,30 +296,325 @@ class ViewController: UIViewController {
                 middleReelLine.image = #imageLiteral(resourceName: "1")
                 middleReelLine.alpha = 1
                 
-                coins += bet*2
+                winnings += ((bet/2) * 3) + bet
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
                 coinsLabel.text = String(coins)
             }
             else {
                 playSound(soundName: "small_win.wav")
                 raysJackpotImage.image = #imageLiteral(resourceName: "rays")
-                coins += bet*2
+                winnings += (bet/2) * 3
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
                 coinsLabel.text = String(coins)
-                if reel == "middle"{
-                    middleReelLine.image = #imageLiteral(resourceName: "1")
-                    middleReelLine.alpha = 1
+                if reel == "top"{
+                    topReelLine.image = #imageLiteral(resourceName: "1")
+                    topReelLine.alpha = 1
                 }
-                else{
+                else if reel == "bottom"{
                     bottomReelLine.image = #imageLiteral(resourceName: "1")
                     bottomReelLine.alpha = 1
                 }
             }
-            
             print("win")
-
         }
         
+        if leftImage == centerImage &&  leftImage == rightImage && leftImage == UIImage(named: "icon_2"){
+            if reel == "middle" {
+                playSound(soundName: "win.wav")
+                winJackpotImage.image = #imageLiteral(resourceName: "mega_win")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                
+                leftFrame.alpha = 1
+                centerFrame.alpha = 1
+                rightFrame.alpha = 1
+                middleReelLine.image = #imageLiteral(resourceName: "1")
+                middleReelLine.alpha = 1
+                
+                winnings += bet*3
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+            }
+            else {
+                playSound(soundName: "small_win.wav")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                winnings += (bet*3)+bet
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+                if reel == "top"{
+                    topReelLine.image = #imageLiteral(resourceName: "1")
+                    topReelLine.alpha = 1
+                }
+                else if reel == "bottom"{
+                    bottomReelLine.image = #imageLiteral(resourceName: "1")
+                    bottomReelLine.alpha = 1
+                }
+            }
+            print("win")
+        }
+        if leftImage == centerImage &&  leftImage == rightImage && leftImage == UIImage(named: "icon_3"){
+            if reel == "middle" {
+                playSound(soundName: "win.wav")
+                winJackpotImage.image = #imageLiteral(resourceName: "mega_win")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                
+                leftFrame.alpha = 1
+                centerFrame.alpha = 1
+                rightFrame.alpha = 1
+                middleReelLine.image = #imageLiteral(resourceName: "1")
+                middleReelLine.alpha = 1
+                
+                winnings += (bet+Int(Float(bet)*0.25)) * 3
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+            }
+            else {
+                playSound(soundName: "small_win.wav")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                winnings += bet+Int(Float(bet)*0.25)
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+                if reel == "top"{
+                    topReelLine.image = #imageLiteral(resourceName: "1")
+                    topReelLine.alpha = 1
+                }
+                else if reel == "bottom"{
+                    bottomReelLine.image = #imageLiteral(resourceName: "1")
+                    bottomReelLine.alpha = 1
+                }
+            }
+            print("win")
+        }
+        if leftImage == centerImage &&  leftImage == rightImage && leftImage == UIImage(named: "icon_4"){
+            if reel == "middle" {
+                playSound(soundName: "win.wav")
+                winJackpotImage.image = #imageLiteral(resourceName: "mega_win")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                
+                leftFrame.alpha = 1
+                centerFrame.alpha = 1
+                rightFrame.alpha = 1
+                middleReelLine.image = #imageLiteral(resourceName: "1")
+                middleReelLine.alpha = 1
+                
+                winnings += (Int(bet/2) + bet) * 3
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+            }
+            else {
+                playSound(soundName: "small_win.wav")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                winnings += Int(bet/2) + bet
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+                if reel == "top"{
+                    topReelLine.image = #imageLiteral(resourceName: "1")
+                    topReelLine.alpha = 1
+                }
+                else if reel == "bottom"{
+                    bottomReelLine.image = #imageLiteral(resourceName: "1")
+                    bottomReelLine.alpha = 1
+                }
+            }
+            print("win")
+        }
+        if leftImage == centerImage &&  leftImage == rightImage && leftImage == UIImage(named: "icon_5"){
+            if reel == "middle" {
+                playSound(soundName: "win.wav")
+                winJackpotImage.image = #imageLiteral(resourceName: "mega_win")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                
+                leftFrame.alpha = 1
+                centerFrame.alpha = 1
+                rightFrame.alpha = 1
+                middleReelLine.image = #imageLiteral(resourceName: "1")
+                middleReelLine.alpha = 1
+                
+                winnings += (bet*2)*3
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+            }
+            else {
+                playSound(soundName: "small_win.wav")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                winnings += bet*2
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+                if reel == "top"{
+                    topReelLine.image = #imageLiteral(resourceName: "1")
+                    topReelLine.alpha = 1
+                }
+                else if reel == "bottom"{
+                    bottomReelLine.image = #imageLiteral(resourceName: "1")
+                    bottomReelLine.alpha = 1
+                }
+            }
+            print("win")
+        }
+        if leftImage == centerImage &&  leftImage == rightImage && leftImage == UIImage(named: "icon_6"){
+            if reel == "middle" {
+                playSound(soundName: "win.wav")
+                winJackpotImage.image = #imageLiteral(resourceName: "mega_win")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                
+                leftFrame.alpha = 1
+                centerFrame.alpha = 1
+                rightFrame.alpha = 1
+                middleReelLine.image = #imageLiteral(resourceName: "1")
+                middleReelLine.alpha = 1
+                
+                winnings += Int(Float(bet)*2.5)*3
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+            }
+            else {
+                playSound(soundName: "small_win.wav")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                winnings += Int(Float(bet)*2.5)
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+                if reel == "top"{
+                    topReelLine.image = #imageLiteral(resourceName: "1")
+                    topReelLine.alpha = 1
+                }
+                else if reel == "bottom"{
+                    bottomReelLine.image = #imageLiteral(resourceName: "1")
+                    bottomReelLine.alpha = 1
+                }
+            }
+            print("win")
+        }
+        if leftImage == centerImage &&  leftImage == rightImage && leftImage == UIImage(named: "icon_7"){
+            if reel == "middle" {
+                playSound(soundName: "win.wav")
+                winJackpotImage.image = #imageLiteral(resourceName: "mega_win")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                
+                leftFrame.alpha = 1
+                centerFrame.alpha = 1
+                rightFrame.alpha = 1
+                middleReelLine.image = #imageLiteral(resourceName: "1")
+                middleReelLine.alpha = 1
+                
+                winnings += jackpot
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+            }
+            else {
+                playSound(soundName: "small_win.wav")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                winnings += (bet*4)*3
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+                if reel == "top"{
+                    topReelLine.image = #imageLiteral(resourceName: "1")
+                    topReelLine.alpha = 1
+                }
+                else if reel == "bottom"{
+                    bottomReelLine.image = #imageLiteral(resourceName: "1")
+                    bottomReelLine.alpha = 1
+                }
+            }
+            print("win")
+        }
+        if leftImage == centerImage &&  leftImage == rightImage && leftImage == UIImage(named: "icon_8"){
+            if reel == "middle" {
+                playSound(soundName: "win.wav")
+                winJackpotImage.image = #imageLiteral(resourceName: "mega_win")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                
+                leftFrame.alpha = 1
+                centerFrame.alpha = 1
+                rightFrame.alpha = 1
+                middleReelLine.image = #imageLiteral(resourceName: "1")
+                middleReelLine.alpha = 1
+                
+                winnings += (bet*3)*3
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+            }
+            else {
+                playSound(soundName: "small_win.wav")
+                raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+                winnings += bet*3
+                coinImage.alpha = 1
+                coinGained.text = "+\(winnings)"
+                coinGained.alpha = 1
+                coinGainedBackground.alpha = 1
+                coins += winnings
+                coinsLabel.text = String(coins)
+                if reel == "top"{
+                    topReelLine.image = #imageLiteral(resourceName: "1")
+                    topReelLine.alpha = 1
+                }
+                else if reel == "bottom"{
+                    bottomReelLine.image = #imageLiteral(resourceName: "1")
+                    bottomReelLine.alpha = 1
+                }
+            }
+            print("win")
+        }
         //MARK: - 2 similar winnings
-        else if leftImage == UIImage(named: "icon_1") && centerImage == UIImage(named: "icon_1") || centerImage == UIImage(named: "icon_1") && rightImage == UIImage(named: "icon_1"){
+        else if leftImage == UIImage(named: "icon_1") && centerImage == UIImage(named: "icon_1") && leftImage != rightImage || centerImage == UIImage(named: "icon_1") && rightImage == UIImage(named: "icon_1") && leftImage != rightImage{
             playSound(soundName: "small_win.wav")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
             winnings += Int(bet/2)
@@ -343,103 +638,7 @@ class ViewController: UIViewController {
             }
             print("small win")
         }
-        else if leftImage == UIImage(named: "icon_2") && centerImage == UIImage(named: "icon_2") || centerImage == UIImage(named: "icon_2") && rightImage == UIImage(named: "icon_2"){
-            playSound(soundName: "small_win.wav")
-            raysJackpotImage.image = #imageLiteral(resourceName: "rays")
-            winnings += Int(bet/2) + Int(bet/6)
-            coinImage.alpha = 1
-            coinGained.text = "+\(winnings)"
-            coinGained.alpha = 1
-            coinGainedBackground.alpha = 1
-            coins += winnings
-            coinsLabel.text = String(coins)
-            if reel == "top" {
-                topReelLine.image = #imageLiteral(resourceName: "1")
-                topReelLine.alpha = 1
-            }
-            else if reel == "middle"{
-                middleReelLine.image = #imageLiteral(resourceName: "1")
-                middleReelLine.alpha = 1
-            }
-            else{
-                bottomReelLine.image = #imageLiteral(resourceName: "1")
-                bottomReelLine.alpha = 1
-            }
-            print("small win")
-        }
-        else if leftImage == UIImage(named: "icon_3") && centerImage == UIImage(named: "icon_3") || centerImage == UIImage(named: "icon_3") && rightImage == UIImage(named: "icon_3"){
-            playSound(soundName: "small_win.wav")
-            raysJackpotImage.image = #imageLiteral(resourceName: "rays")
-            winnings += Int(bet/2) + Int(bet/5)
-            coinImage.alpha = 1
-            coinGained.text = "+\(winnings)"
-            coinGained.alpha = 1
-            coinGainedBackground.alpha = 1
-            coins += winnings
-            coinsLabel.text = String(coins)
-            if reel == "top" {
-                topReelLine.image = #imageLiteral(resourceName: "1")
-                topReelLine.alpha = 1
-            }
-            else if reel == "middle"{
-                middleReelLine.image = #imageLiteral(resourceName: "1")
-                middleReelLine.alpha = 1
-            }
-            else{
-                bottomReelLine.image = #imageLiteral(resourceName: "1")
-                bottomReelLine.alpha = 1
-            }
-            print("small win")
-        }
-        else if leftImage == UIImage(named: "icon_4") && centerImage == UIImage(named: "icon_4") || centerImage == UIImage(named: "icon_4") && rightImage == UIImage(named: "icon_4"){
-            playSound(soundName: "small_win.wav")
-            raysJackpotImage.image = #imageLiteral(resourceName: "rays")
-            winnings += Int(bet/2) + Int(bet/4)
-            coinImage.alpha = 1
-            coinGained.text = "+\(winnings)"
-            coinGained.alpha = 1
-            coinGainedBackground.alpha = 1
-            coins += winnings
-            coinsLabel.text = String(coins)
-            if reel == "top" {
-                topReelLine.image = #imageLiteral(resourceName: "1")
-                topReelLine.alpha = 1
-            }
-            else if reel == "middle"{
-                middleReelLine.image = #imageLiteral(resourceName: "1")
-                middleReelLine.alpha = 1
-            }
-            else{
-                bottomReelLine.image = #imageLiteral(resourceName: "1")
-                bottomReelLine.alpha = 1
-            }
-            print("small win")
-        }
-        else if leftImage == UIImage(named: "icon_5") && centerImage == UIImage(named: "icon_5") || centerImage == UIImage(named: "icon_5") && rightImage == UIImage(named: "icon_5"){
-            playSound(soundName: "small_win.wav")
-            raysJackpotImage.image = #imageLiteral(resourceName: "rays")
-            winnings += Int(bet/2) + Int(bet/3)
-            coinImage.alpha = 1
-            coinGained.text = "+\(winnings)"
-            coinGained.alpha = 1
-            coinGainedBackground.alpha = 1
-            coins += winnings
-            coinsLabel.text = String(coins)
-            if reel == "top" {
-                topReelLine.image = #imageLiteral(resourceName: "1")
-                topReelLine.alpha = 1
-            }
-            else if reel == "middle"{
-                middleReelLine.image = #imageLiteral(resourceName: "1")
-                middleReelLine.alpha = 1
-            }
-            else{
-                bottomReelLine.image = #imageLiteral(resourceName: "1")
-                bottomReelLine.alpha = 1
-            }
-            print("small win")
-        }
-        else if leftImage == UIImage(named: "icon_6") && centerImage == UIImage(named: "icon_6") || centerImage == UIImage(named: "icon_6") && rightImage == UIImage(named: "icon_6"){
+        else if leftImage == UIImage(named: "icon_2") && centerImage == UIImage(named: "icon_2") && leftImage != rightImage || centerImage == UIImage(named: "icon_2") && rightImage == UIImage(named: "icon_2") && leftImage != rightImage{
             playSound(soundName: "small_win.wav")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
             winnings += bet
@@ -463,10 +662,10 @@ class ViewController: UIViewController {
             }
             print("small win")
         }
-        else if leftImage == UIImage(named: "icon_7") && centerImage == UIImage(named: "icon_7") || centerImage == UIImage(named: "icon_7") && rightImage == UIImage(named: "icon_7"){
+        else if leftImage == UIImage(named: "icon_3") && centerImage == UIImage(named: "icon_3") && leftImage != rightImage || centerImage == UIImage(named: "icon_3") && rightImage == UIImage(named: "icon_3") && leftImage != rightImage{
             playSound(soundName: "small_win.wav")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
-            winnings += bet * 2
+            winnings += bet + Int(Float(bet)*0.25)
             coinImage.alpha = 1
             coinGained.text = "+\(winnings)"
             coinGained.alpha = 1
@@ -487,10 +686,10 @@ class ViewController: UIViewController {
             }
             print("small win")
         }
-        else if leftImage == UIImage(named: "icon_8") && centerImage == UIImage(named: "icon_8") || centerImage == UIImage(named: "icon_8") && rightImage == UIImage(named: "icon_8"){
+        else if leftImage == UIImage(named: "icon_4") && centerImage == UIImage(named: "icon_4") && leftImage != rightImage || centerImage == UIImage(named: "icon_4") && rightImage == UIImage(named: "icon_4") && leftImage != rightImage{
             playSound(soundName: "small_win.wav")
             raysJackpotImage.image = #imageLiteral(resourceName: "rays")
-            winnings += bet + Int(bet/2)
+            winnings += Int(bet/2) + bet
             coinImage.alpha = 1
             coinGained.text = "+\(winnings)"
             coinGained.alpha = 1
@@ -511,7 +710,103 @@ class ViewController: UIViewController {
             }
             print("small win")
         }
-        else{
+        else if leftImage == UIImage(named: "icon_5") && centerImage == UIImage(named: "icon_5") && leftImage != rightImage || centerImage == UIImage(named: "icon_5") && rightImage == UIImage(named: "icon_5") && leftImage != rightImage{
+            playSound(soundName: "small_win.wav")
+            raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+            winnings += bet*2
+            coinImage.alpha = 1
+            coinGained.text = "+\(winnings)"
+            coinGained.alpha = 1
+            coinGainedBackground.alpha = 1
+            coins += winnings
+            coinsLabel.text = String(coins)
+            if reel == "top" {
+                topReelLine.image = #imageLiteral(resourceName: "1")
+                topReelLine.alpha = 1
+            }
+            else if reel == "middle"{
+                middleReelLine.image = #imageLiteral(resourceName: "1")
+                middleReelLine.alpha = 1
+            }
+            else{
+                bottomReelLine.image = #imageLiteral(resourceName: "1")
+                bottomReelLine.alpha = 1
+            }
+            print("small win")
+        }
+        else if leftImage == UIImage(named: "icon_6") && centerImage == UIImage(named: "icon_6") && leftImage != rightImage || centerImage == UIImage(named: "icon_6") && rightImage == UIImage(named: "icon_6") && leftImage != rightImage{
+            playSound(soundName: "small_win.wav")
+            raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+            winnings += Int(Float(bet)*2.5)
+            coinImage.alpha = 1
+            coinGained.text = "+\(winnings)"
+            coinGained.alpha = 1
+            coinGainedBackground.alpha = 1
+            coins += winnings
+            coinsLabel.text = String(coins)
+            if reel == "top" {
+                topReelLine.image = #imageLiteral(resourceName: "1")
+                topReelLine.alpha = 1
+            }
+            else if reel == "middle"{
+                middleReelLine.image = #imageLiteral(resourceName: "1")
+                middleReelLine.alpha = 1
+            }
+            else{
+                bottomReelLine.image = #imageLiteral(resourceName: "1")
+                bottomReelLine.alpha = 1
+            }
+            print("small win")
+        }
+        else if leftImage == UIImage(named: "icon_7") && centerImage == UIImage(named: "icon_7") && leftImage != rightImage || centerImage == UIImage(named: "icon_7") && rightImage == UIImage(named: "icon_7") && leftImage != rightImage{
+            playSound(soundName: "small_win.wav")
+            raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+            winnings += bet * 4
+            coinImage.alpha = 1
+            coinGained.text = "+\(winnings)"
+            coinGained.alpha = 1
+            coinGainedBackground.alpha = 1
+            coins += winnings
+            coinsLabel.text = String(coins)
+            if reel == "top" {
+                topReelLine.image = #imageLiteral(resourceName: "1")
+                topReelLine.alpha = 1
+            }
+            else if reel == "middle"{
+                middleReelLine.image = #imageLiteral(resourceName: "1")
+                middleReelLine.alpha = 1
+            }
+            else{
+                bottomReelLine.image = #imageLiteral(resourceName: "1")
+                bottomReelLine.alpha = 1
+            }
+            print("small win")
+        }
+        else if leftImage == UIImage(named: "icon_8") && centerImage == UIImage(named: "icon_8") && leftImage != rightImage || centerImage == UIImage(named: "icon_8") && rightImage == UIImage(named: "icon_8") && leftImage != rightImage{
+            playSound(soundName: "small_win.wav")
+            raysJackpotImage.image = #imageLiteral(resourceName: "rays")
+            winnings += bet * 3
+            coinImage.alpha = 1
+            coinGained.text = "+\(winnings)"
+            coinGained.alpha = 1
+            coinGainedBackground.alpha = 1
+            coins += winnings
+            coinsLabel.text = String(coins)
+            if reel == "top" {
+                topReelLine.image = #imageLiteral(resourceName: "1")
+                topReelLine.alpha = 1
+            }
+            else if reel == "middle"{
+                middleReelLine.image = #imageLiteral(resourceName: "1")
+                middleReelLine.alpha = 1
+            }
+            else{
+                bottomReelLine.image = #imageLiteral(resourceName: "1")
+                bottomReelLine.alpha = 1
+            }
+            print("small win")
+        }
+        else if leftImage != centerImage && centerImage != rightImage{
             playSound(soundName: "lose.wav")
             if reel == "top" {
                 topReelLine.image = #imageLiteral(resourceName: "line")
@@ -527,8 +822,6 @@ class ViewController: UIViewController {
             }
             print("lose")
         }
-        
-        
     }
     //MARK: - sounds
     func playSound(soundName: String) {
