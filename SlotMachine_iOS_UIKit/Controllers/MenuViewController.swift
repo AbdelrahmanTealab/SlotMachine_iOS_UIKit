@@ -11,9 +11,11 @@ import AVFoundation
 class MenuViewController: UIViewController {
     var player: AVAudioPlayer?
 
+    @IBOutlet weak var menuView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        menuView.layer.cornerRadius = 15;
+        menuView.layer.masksToBounds = true;
         // Do any additional setup after loading the view.
     }
     

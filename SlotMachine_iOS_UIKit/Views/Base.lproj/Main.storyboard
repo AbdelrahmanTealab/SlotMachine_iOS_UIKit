@@ -608,26 +608,29 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen" translatesAutoresizingMaskIntoConstraints="NO" id="abb-jY-x8W">
                                         <rect key="frame" x="0.0" y="0.0" width="248" height="168"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q6W-v5-oVg">
-                                        <rect key="frame" x="0.0" y="0.0" width="248" height="168"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="q6W-v5-oVg">
+                                        <rect key="frame" x="10" y="20" width="228" height="128"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8l-iU-CMy">
-                                                <rect key="frame" x="0.0" y="0.0" width="248" height="93"/>
-                                                <state key="normal" title="Resume"/>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8l-iU-CMy">
+                                                <rect key="frame" x="0.0" y="0.0" width="228" height="29.5"/>
+                                                <state key="normal" image="resume"/>
+                                                <state key="highlighted" image="resume-highlight"/>
                                                 <connections>
                                                     <action selector="resumePressed:" destination="3bm-3x-iuz" eventType="touchUpInside" id="cYk-KZ-jV7"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kO9-RN-H0a">
-                                                <rect key="frame" x="0.0" y="37.5" width="248" height="93"/>
-                                                <state key="normal" title="Info"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kO9-RN-H0a">
+                                                <rect key="frame" x="0.0" y="49.5" width="228" height="29"/>
+                                                <state key="normal" image="info"/>
+                                                <state key="highlighted" image="info-highlight"/>
                                                 <connections>
                                                     <action selector="infoPressed:" destination="3bm-3x-iuz" eventType="touchUpInside" id="APy-KK-CZO"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-HG-dsn">
-                                                <rect key="frame" x="0.0" y="75" width="248" height="93"/>
-                                                <state key="normal" title="Reset"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-HG-dsn">
+                                                <rect key="frame" x="0.0" y="98.5" width="228" height="29.5"/>
+                                                <state key="normal" image="reset"/>
+                                                <state key="highlighted" image="reset-highlight"/>
                                                 <connections>
                                                     <action selector="resetPressed:" destination="3bm-3x-iuz" eventType="touchUpInside" id="f6y-22-RI8"/>
                                                 </connections>
@@ -637,14 +640,14 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="q6W-v5-oVg" firstAttribute="top" secondItem="9Yo-GD-WZc" secondAttribute="top" id="1Pr-D7-4CI"/>
+                                    <constraint firstItem="q6W-v5-oVg" firstAttribute="top" secondItem="9Yo-GD-WZc" secondAttribute="top" constant="20" id="1Pr-D7-4CI"/>
                                     <constraint firstAttribute="trailing" secondItem="abb-jY-x8W" secondAttribute="trailing" id="3Ku-cI-b8g"/>
-                                    <constraint firstAttribute="trailing" secondItem="q6W-v5-oVg" secondAttribute="trailing" id="DTn-6O-NVm"/>
+                                    <constraint firstAttribute="trailing" secondItem="q6W-v5-oVg" secondAttribute="trailing" constant="10" id="DTn-6O-NVm"/>
                                     <constraint firstAttribute="bottom" secondItem="abb-jY-x8W" secondAttribute="bottom" id="Rr3-1g-B4a"/>
                                     <constraint firstItem="abb-jY-x8W" firstAttribute="leading" secondItem="9Yo-GD-WZc" secondAttribute="leading" id="YNs-AB-8Bz"/>
-                                    <constraint firstItem="q6W-v5-oVg" firstAttribute="leading" secondItem="9Yo-GD-WZc" secondAttribute="leading" id="Zk9-6S-m9I"/>
+                                    <constraint firstItem="q6W-v5-oVg" firstAttribute="leading" secondItem="9Yo-GD-WZc" secondAttribute="leading" constant="10" id="Zk9-6S-m9I"/>
                                     <constraint firstItem="abb-jY-x8W" firstAttribute="top" secondItem="9Yo-GD-WZc" secondAttribute="top" id="ZpY-2r-TyT"/>
-                                    <constraint firstAttribute="bottom" secondItem="q6W-v5-oVg" secondAttribute="bottom" id="klm-pA-P9W"/>
+                                    <constraint firstAttribute="bottom" secondItem="q6W-v5-oVg" secondAttribute="bottom" constant="20" id="klm-pA-P9W"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -656,6 +659,9 @@
                             <constraint firstItem="9Yo-GD-WZc" firstAttribute="height" secondItem="0Jt-A1-uuq" secondAttribute="height" multiplier="0.2" id="tY4-2p-3dM"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="menuView" destination="9Yo-GD-WZc" id="TpH-K2-dux"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buW-lR-WSC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -682,9 +688,15 @@
         <image name="icon_6" width="48" height="48"/>
         <image name="icon_7" width="48" height="48"/>
         <image name="icon_8" width="48" height="48"/>
+        <image name="info" width="72" height="31"/>
+        <image name="info-highlight" width="72" height="31"/>
         <image name="logo_small" width="150" height="54"/>
         <image name="mega_win" width="140.5" height="117"/>
         <image name="rays" width="426.5" height="266.5"/>
+        <image name="reset" width="95.5" height="33"/>
+        <image name="reset-highlight" width="95.5" height="33"/>
+        <image name="resume" width="132" height="28"/>
+        <image name="resume-highlight" width="132" height="28"/>
         <image name="screen" width="426.5" height="266.5"/>
         <image name="start_active_btn" width="68" height="68"/>
         <image name="start_btn" width="68" height="68"/>
