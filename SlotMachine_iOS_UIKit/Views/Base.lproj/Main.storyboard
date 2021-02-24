@@ -126,6 +126,9 @@
                                         </constraints>
                                         <state key="normal" image="close"/>
                                         <state key="highlighted" image="close_active"/>
+                                        <connections>
+                                            <action selector="quitPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ze7-K4-Dvi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

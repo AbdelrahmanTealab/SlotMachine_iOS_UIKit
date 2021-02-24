@@ -106,6 +106,19 @@ class ViewController: UIViewController {
         playSound(soundName: "open_menu.wav")
     }
     
+    @IBAction func quitPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "WARNING", message: "You're about to QUIT the game, are you sure ? ", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "YES", style: UIAlertAction.Style.default, handler: { [self] (UIAlertAction) in
+            exit(1)
+        }))
+        alert.addAction(UIAlertAction(title: "NO", style: UIAlertAction.Style.default, handler:nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    
+       }
+    
+    
     //MARK: - Betting
     func changeBet(sender:UIButton,value:Int) -> Int {
         
