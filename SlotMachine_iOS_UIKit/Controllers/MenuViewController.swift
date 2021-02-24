@@ -24,9 +24,6 @@ class MenuViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func infoPressed(_ sender: UIButton) {
-    }
-    
     @IBAction func resetPressed(_ sender: UIButton) {
         resetEverything()
     }

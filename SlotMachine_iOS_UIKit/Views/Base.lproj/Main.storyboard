@@ -603,32 +603,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Yo-GD-WZc">
-                                <rect key="frame" x="83" y="337" width="248" height="168"/>
+                                <rect key="frame" x="83" y="210.5" width="248" height="421"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen" translatesAutoresizingMaskIntoConstraints="NO" id="abb-jY-x8W">
-                                        <rect key="frame" x="0.0" y="0.0" width="248" height="168"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="248" height="421"/>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="q6W-v5-oVg">
-                                        <rect key="frame" x="10" y="20" width="228" height="128"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="q6W-v5-oVg">
+                                        <rect key="frame" x="10" y="20" width="228" height="381"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8l-iU-CMy">
-                                                <rect key="frame" x="0.0" y="0.0" width="228" height="29.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8l-iU-CMy" userLabel="Resume">
+                                                <rect key="frame" x="0.0" y="0.0" width="228" height="127"/>
                                                 <state key="normal" image="resume"/>
                                                 <state key="highlighted" image="resume-highlight"/>
                                                 <connections>
                                                     <action selector="resumePressed:" destination="3bm-3x-iuz" eventType="touchUpInside" id="cYk-KZ-jV7"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kO9-RN-H0a">
-                                                <rect key="frame" x="0.0" y="49.5" width="228" height="29"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kO9-RN-H0a" userLabel="Info">
+                                                <rect key="frame" x="0.0" y="127" width="228" height="127"/>
                                                 <state key="normal" image="info"/>
                                                 <state key="highlighted" image="info-highlight"/>
                                                 <connections>
-                                                    <action selector="infoPressed:" destination="3bm-3x-iuz" eventType="touchUpInside" id="APy-KK-CZO"/>
+                                                    <segue destination="QjY-Uk-vzu" kind="presentation" id="erd-BY-kvK"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-HG-dsn">
-                                                <rect key="frame" x="0.0" y="98.5" width="228" height="29.5"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-HG-dsn" userLabel="Reset">
+                                                <rect key="frame" x="0.0" y="254" width="228" height="127"/>
                                                 <state key="normal" image="reset"/>
                                                 <state key="highlighted" image="reset-highlight"/>
                                                 <connections>
@@ -656,7 +656,7 @@
                             <constraint firstItem="9Yo-GD-WZc" firstAttribute="centerY" secondItem="0Jt-A1-uuq" secondAttribute="centerY" id="80s-WX-KZ7"/>
                             <constraint firstItem="9Yo-GD-WZc" firstAttribute="centerX" secondItem="0Jt-A1-uuq" secondAttribute="centerX" id="URC-va-CM2"/>
                             <constraint firstItem="9Yo-GD-WZc" firstAttribute="width" secondItem="0Jt-A1-uuq" secondAttribute="width" multiplier="0.6" id="ZeN-qe-ADu"/>
-                            <constraint firstItem="9Yo-GD-WZc" firstAttribute="height" secondItem="0Jt-A1-uuq" secondAttribute="height" multiplier="0.2" id="tY4-2p-3dM"/>
+                            <constraint firstItem="9Yo-GD-WZc" firstAttribute="height" secondItem="0Jt-A1-uuq" secondAttribute="height" multiplier="0.5" id="tY4-2p-3dM"/>
                         </constraints>
                     </view>
                     <connections>
@@ -666,6 +666,202 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buW-lR-WSC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="925" y="76"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="blf-QK-rOQ">
+            <objects>
+                <viewController id="QjY-Uk-vzu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zpv-Iv-J1v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aA-2a-K8l">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="window_2" translatesAutoresizingMaskIntoConstraints="NO" id="Yn8-dg-F2D">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="hlf-M4-YUH">
+                                        <rect key="frame" x="10" y="5" width="394" height="832"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8xV-Zo-5jO">
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="88"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_1" translatesAutoresizingMaskIntoConstraints="NO" id="549-5T-5D8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="88"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0u6-zW-laC">
+                                                        <rect key="frame" x="202" y="0.0" width="192" height="88"/>
+                                                        <string key="text">Hard hat
+0.5 bet</string>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
+                                                        <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1xD-aS-eBH">
+                                                <rect key="frame" x="0.0" y="93" width="394" height="88"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_2" translatesAutoresizingMaskIntoConstraints="NO" id="Vtq-ot-264">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="88"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OM2-Ev-o1t">
+                                                        <rect key="frame" x="202" y="0.0" width="192" height="88"/>
+                                                        <string key="text">Recovery
+1 bet</string>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
+                                                        <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cgP-cC-3Ei">
+                                                <rect key="frame" x="0.0" y="186" width="394" height="88"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_3" translatesAutoresizingMaskIntoConstraints="NO" id="T7k-yN-ogn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="88"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cif-9w-Tj9">
+                                                        <rect key="frame" x="202" y="0.0" width="192" height="88"/>
+                                                        <string key="text">Shades
++0.25 bet</string>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
+                                                        <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="on2-Uy-17y">
+                                                <rect key="frame" x="0.0" y="279" width="394" height="88"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_4" translatesAutoresizingMaskIntoConstraints="NO" id="jE4-qM-IsI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="88"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dcz-Wt-cdV">
+                                                        <rect key="frame" x="202" y="0.0" width="192" height="88"/>
+                                                        <string key="text">Climber boots
++1.5 bet</string>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
+                                                        <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lBu-DR-9wn">
+                                                <rect key="frame" x="0.0" y="372" width="394" height="88"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_5" translatesAutoresizingMaskIntoConstraints="NO" id="SBE-qD-bo1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="88"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xZy-VN-Z6H">
+                                                        <rect key="frame" x="202" y="0.0" width="192" height="88"/>
+                                                        <string key="text">Hook
++2 bet</string>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
+                                                        <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yhv-yx-zTG">
+                                                <rect key="frame" x="0.0" y="465" width="394" height="88"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_6" translatesAutoresizingMaskIntoConstraints="NO" id="ZTD-ns-Vmp">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="88"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R7d-lu-NYd">
+                                                        <rect key="frame" x="202" y="0.0" width="192" height="88"/>
+                                                        <string key="text">Tent
++2.5 bet</string>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
+                                                        <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SGt-HW-T1E">
+                                                <rect key="frame" x="0.0" y="558" width="394" height="88"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_8" translatesAutoresizingMaskIntoConstraints="NO" id="v7t-Gd-vUQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="88"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HbF-Mj-Nbq">
+                                                        <rect key="frame" x="202" y="0.0" width="192" height="88"/>
+                                                        <string key="text">Mountain Yeti
++3 bet</string>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
+                                                        <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EPt-Zi-AlB">
+                                                <rect key="frame" x="0.0" y="651" width="394" height="88"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_7" translatesAutoresizingMaskIntoConstraints="NO" id="fph-az-Z19">
+                                                        <rect key="frame" x="0.0" y="0.0" width="192" height="88"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7B0-e8-WMk">
+                                                        <rect key="frame" x="202" y="0.0" width="192" height="88"/>
+                                                        <string key="text">RockClimber
++4 bet</string>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
+                                                        <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4am-Bs-rkb">
+                                                <rect key="frame" x="0.0" y="744" width="394" height="88"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x3 = Reward x 3" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J4M-Vf-tPL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="29.5"/>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
+                                                        <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x3 Middle Reel = x3 + bet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rcg-o6-8C8">
+                                                        <rect key="frame" x="0.0" y="29.5" width="394" height="29"/>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
+                                                        <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x3 RockClimber Middle Reel = Jackpot" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8qe-Ig-01U">
+                                                        <rect key="frame" x="0.0" y="58.5" width="394" height="29.5"/>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
+                                                        <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hlf-M4-YUH" firstAttribute="top" secondItem="6aA-2a-K8l" secondAttribute="top" constant="5" id="1tb-dG-7td"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yn8-dg-F2D" secondAttribute="trailing" id="6s0-VN-ewS"/>
+                                    <constraint firstAttribute="trailing" secondItem="hlf-M4-YUH" secondAttribute="trailing" constant="10" id="A4E-kJ-r0i"/>
+                                    <constraint firstAttribute="bottom" secondItem="hlf-M4-YUH" secondAttribute="bottom" constant="5" id="Ipa-Bg-6sg"/>
+                                    <constraint firstItem="hlf-M4-YUH" firstAttribute="leading" secondItem="6aA-2a-K8l" secondAttribute="leading" constant="10" id="MQF-YC-4Fq"/>
+                                    <constraint firstItem="Yn8-dg-F2D" firstAttribute="top" secondItem="6aA-2a-K8l" secondAttribute="top" id="RBI-PZ-jYN"/>
+                                    <constraint firstItem="Yn8-dg-F2D" firstAttribute="leading" secondItem="6aA-2a-K8l" secondAttribute="leading" id="iwF-gf-w7n"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yn8-dg-F2D" secondAttribute="bottom" id="tbc-ho-zLp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JEC-SM-1Sl"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6aA-2a-K8l" secondAttribute="trailing" id="8il-ZP-Ld8"/>
+                            <constraint firstAttribute="bottom" secondItem="6aA-2a-K8l" secondAttribute="bottom" id="QPQ-oT-WYS"/>
+                            <constraint firstItem="6aA-2a-K8l" firstAttribute="top" secondItem="zpv-Iv-J1v" secondAttribute="top" id="eef-Q2-ZMz"/>
+                            <constraint firstItem="6aA-2a-K8l" firstAttribute="leading" secondItem="zpv-Iv-J1v" secondAttribute="leading" id="qXa-w3-W6T"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uyg-es-S7b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798.5507246376812" y="75.669642857142847"/>
         </scene>
     </scenes>
     <resources>
@@ -682,8 +878,10 @@
         <image name="close_active" width="22" height="22"/>
         <image name="coin" width="933.5" height="1024.5"/>
         <image name="frame" width="56.5" height="55.5"/>
+        <image name="icon_1" width="48" height="48"/>
         <image name="icon_2" width="48" height="48"/>
         <image name="icon_3" width="48" height="48"/>
+        <image name="icon_4" width="48" height="48"/>
         <image name="icon_5" width="48" height="48"/>
         <image name="icon_6" width="48" height="48"/>
         <image name="icon_7" width="48" height="48"/>
