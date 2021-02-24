@@ -23,6 +23,9 @@ class MenuViewController: UIViewController {
         playSound(soundName: "remove_menu.wav")
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func infoPressed(_ sender: UIButton) {
+        playSound(soundName: "open_menu.wav")
+    }
     
     @IBAction func resetPressed(_ sender: UIButton) {
         resetEverything()

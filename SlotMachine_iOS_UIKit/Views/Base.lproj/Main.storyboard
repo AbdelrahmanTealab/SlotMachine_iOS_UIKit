@@ -624,6 +624,7 @@
                                                 <state key="normal" image="info"/>
                                                 <state key="highlighted" image="info-highlight"/>
                                                 <connections>
+                                                    <action selector="infoPressed:" destination="3bm-3x-iuz" eventType="touchUpInside" id="lsq-P3-XF3"/>
                                                     <segue destination="QjY-Uk-vzu" kind="presentation" id="erd-BY-kvK"/>
                                                 </connections>
                                             </button>
@@ -693,7 +694,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0u6-zW-laC">
                                                         <rect key="frame" x="202" y="0.0" width="192" height="88"/>
                                                         <string key="text">Hard hat
-0.5 bet</string>
++0.5 bet</string>
                                                         <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
                                                         <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
@@ -709,7 +710,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OM2-Ev-o1t">
                                                         <rect key="frame" x="202" y="0.0" width="192" height="88"/>
                                                         <string key="text">Recovery
-1 bet</string>
++1 bet</string>
                                                         <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
                                                         <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
@@ -725,7 +726,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cif-9w-Tj9">
                                                         <rect key="frame" x="202" y="0.0" width="192" height="88"/>
                                                         <string key="text">Shades
-+0.25 bet</string>
++1.25 bet</string>
                                                         <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="48"/>
                                                         <color key="textColor" red="0.99256139990000003" green="0.9093394279" blue="0.66269743439999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
