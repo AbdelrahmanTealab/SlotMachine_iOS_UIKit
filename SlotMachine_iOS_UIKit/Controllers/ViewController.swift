@@ -7,6 +7,7 @@
 
 import UIKit
 import Spruce
+import Firebase
 import AVFoundation
 
 class ViewController: UIViewController {
@@ -50,6 +51,7 @@ class ViewController: UIViewController {
     var jackpot = 5000
     var winnings = 0
 
+    let db = Firestore.firestore()
     var player: AVAudioPlayer?
     var betTimer: Timer?
     var timeAtPress: Date?
@@ -287,6 +289,10 @@ class ViewController: UIViewController {
         if coins < bet {
             let alert = UIAlertController(title: "DENIED", message: "Insuffecient Coins, please purchase more coins to continue", preferredStyle: UIAlertController.Style.alert)
             
+            alert.addAction(UIAlertAction(title: "Buy ALL", style: UIAlertAction.Style.default, handler: { [self] (UIAlertAction) in
+                coins += bet-coins
+                coinsLabel.text = String(coins)
+            }))
             alert.addAction(UIAlertAction(title: "Buy 100 coin", style: UIAlertAction.Style.default, handler: { [self] (UIAlertAction) in
                 coins += 100
                 coinsLabel.text = String(coins)

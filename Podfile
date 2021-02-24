@@ -5,5 +5,7 @@ target 'SlotMachine_iOS_UIKit' do
   use_frameworks!
 
   pod "Spruce", '~> 1.0.0'
+  pod 'Firebase/Firestore'
+
 
 end

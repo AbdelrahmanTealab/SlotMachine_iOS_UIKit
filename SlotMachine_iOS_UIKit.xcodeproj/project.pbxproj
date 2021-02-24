@@ -16,6 +16,7 @@
 		B649315925BB859700BAF03F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B649315725BB859700BAF03F /* Main.storyboard */; };
 		B649315B25BB859A00BAF03F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B649315A25BB859A00BAF03F /* Assets.xcassets */; };
 		B649315E25BB859A00BAF03F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B649315C25BB859A00BAF03F /* LaunchScreen.storyboard */; };
+		B66EECFB25E710A100757060 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B66EECFA25E710A100757060 /* GoogleService-Info.plist */; };
 		B6BA825025DEF3220033C8C0 /* small_win.wav in Resources */ = {isa = PBXBuildFile; fileRef = B6BA824F25DEF3220033C8C0 /* small_win.wav */; };
 		B6BA825325E05ADF0033C8C0 /* win3_not_middle.wav in Resources */ = {isa = PBXBuildFile; fileRef = B6BA825225E05ADF0033C8C0 /* win3_not_middle.wav */; };
 		B6BB90CD25E5E559006C9062 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BB90CC25E5E559006C9062 /* MenuViewController.swift */; };
@@ -39,6 +40,7 @@
 		B649315A25BB859A00BAF03F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B649315D25BB859A00BAF03F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B649315F25BB859A00BAF03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B66EECFA25E710A100757060 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B6BA824F25DEF3220033C8C0 /* small_win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = small_win.wav; sourceTree = "<group>"; };
 		B6BA825225E05ADF0033C8C0 /* win3_not_middle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win3_not_middle.wav; sourceTree = "<group>"; };
 		B6BB90CC25E5E559006C9062 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				B649315A25BB859A00BAF03F /* Assets.xcassets */,
 				B649315C25BB859A00BAF03F /* LaunchScreen.storyboard */,
 				B649315F25BB859A00BAF03F /* Info.plist */,
+				B66EECFA25E710A100757060 /* GoogleService-Info.plist */,
 			);
 			path = SlotMachine_iOS_UIKit;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				B6BB90D025E5EC09006C9062 /* remove_menu.wav in Resources */,
 				B63D623425D7B3730077FAEF /* win.wav in Resources */,
 				B6BA825325E05ADF0033C8C0 /* win3_not_middle.wav in Resources */,
+				B66EECFB25E710A100757060 /* GoogleService-Info.plist in Resources */,
 				B649315925BB859700BAF03F /* Main.storyboard in Resources */,
 				B6BB90D325E5ECB9006C9062 /* open_menu.wav in Resources */,
 			);
@@ -411,7 +415,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.abdelrahmantealab;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atealab.SlotMachine-iOS-UIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -433,7 +437,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.abdelrahmantealab;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atealab.SlotMachine-iOS-UIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
