@@ -101,25 +101,9 @@ class ViewController: UIViewController {
         jackpotLabel.text = String(jackpot)
     }
     
-    func resetEverything() {
-        /**  This block of code here is to hard reset the entire game with the values as well **/
-
-        let alert = UIAlertController(title: "WARNING", message: "You're about to reset the game, are you sure ?", preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "YES", style: UIAlertAction.Style.default, handler: { [self] (UIAlertAction) in
-            bet = 10
-            coins = 100
-            jackpot = 5000
-            reset()
-        }))
-        alert.addAction(UIAlertAction(title: "NO", style: UIAlertAction.Style.default, handler:nil))
-        
-        self.present(alert, animated: true, completion: nil)
     
-    }
-    
-    @IBAction func resetPressed(_ sender: UIButton) {
-        resetEverything()
+    @IBAction func menuPressed(_ sender: UIButton) {
+        playSound(soundName: "open_menu.wav")
     }
     
     //MARK: - Betting

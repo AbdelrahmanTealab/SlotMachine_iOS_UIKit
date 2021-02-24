@@ -30,7 +30,10 @@
                                         <state key="normal" title="↺" image="circle_btn" backgroundImage="circle_btn"/>
                                         <state key="highlighted" image="circle_btn_active"/>
                                         <connections>
-                                            <action selector="resetPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7OA-5h-gac"/>
+                                            <action selector="menuPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7OA-5h-gac"/>
+                                            <segue destination="3bm-3x-iuz" kind="popoverPresentation" popoverAnchorView="RTg-wl-4S3" id="9ZX-BX-s9p">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5V-65-B1W" userLabel="images view">
@@ -588,6 +591,73 @@
             </objects>
             <point key="canvasLocation" x="95.652173913043484" y="75.669642857142847"/>
         </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="oin-gW-Ibx">
+            <objects>
+                <viewController id="3bm-3x-iuz" customClass="MenuViewController" customModule="SlotMachine_iOS_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Jt-A1-uuq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Yo-GD-WZc">
+                                <rect key="frame" x="83" y="337" width="248" height="168"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen" translatesAutoresizingMaskIntoConstraints="NO" id="abb-jY-x8W">
+                                        <rect key="frame" x="0.0" y="0.0" width="248" height="168"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q6W-v5-oVg">
+                                        <rect key="frame" x="0.0" y="0.0" width="248" height="168"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I8l-iU-CMy">
+                                                <rect key="frame" x="0.0" y="0.0" width="248" height="93"/>
+                                                <state key="normal" title="Resume"/>
+                                                <connections>
+                                                    <action selector="resumePressed:" destination="3bm-3x-iuz" eventType="touchUpInside" id="cYk-KZ-jV7"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kO9-RN-H0a">
+                                                <rect key="frame" x="0.0" y="37.5" width="248" height="93"/>
+                                                <state key="normal" title="Info"/>
+                                                <connections>
+                                                    <action selector="infoPressed:" destination="3bm-3x-iuz" eventType="touchUpInside" id="APy-KK-CZO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-HG-dsn">
+                                                <rect key="frame" x="0.0" y="75" width="248" height="93"/>
+                                                <state key="normal" title="Reset"/>
+                                                <connections>
+                                                    <action selector="resetPressed:" destination="3bm-3x-iuz" eventType="touchUpInside" id="f6y-22-RI8"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="q6W-v5-oVg" firstAttribute="top" secondItem="9Yo-GD-WZc" secondAttribute="top" id="1Pr-D7-4CI"/>
+                                    <constraint firstAttribute="trailing" secondItem="abb-jY-x8W" secondAttribute="trailing" id="3Ku-cI-b8g"/>
+                                    <constraint firstAttribute="trailing" secondItem="q6W-v5-oVg" secondAttribute="trailing" id="DTn-6O-NVm"/>
+                                    <constraint firstAttribute="bottom" secondItem="abb-jY-x8W" secondAttribute="bottom" id="Rr3-1g-B4a"/>
+                                    <constraint firstItem="abb-jY-x8W" firstAttribute="leading" secondItem="9Yo-GD-WZc" secondAttribute="leading" id="YNs-AB-8Bz"/>
+                                    <constraint firstItem="q6W-v5-oVg" firstAttribute="leading" secondItem="9Yo-GD-WZc" secondAttribute="leading" id="Zk9-6S-m9I"/>
+                                    <constraint firstItem="abb-jY-x8W" firstAttribute="top" secondItem="9Yo-GD-WZc" secondAttribute="top" id="ZpY-2r-TyT"/>
+                                    <constraint firstAttribute="bottom" secondItem="q6W-v5-oVg" secondAttribute="bottom" id="klm-pA-P9W"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yvQ-lr-spx"/>
+                        <constraints>
+                            <constraint firstItem="9Yo-GD-WZc" firstAttribute="centerY" secondItem="0Jt-A1-uuq" secondAttribute="centerY" id="80s-WX-KZ7"/>
+                            <constraint firstItem="9Yo-GD-WZc" firstAttribute="centerX" secondItem="0Jt-A1-uuq" secondAttribute="centerX" id="URC-va-CM2"/>
+                            <constraint firstItem="9Yo-GD-WZc" firstAttribute="width" secondItem="0Jt-A1-uuq" secondAttribute="width" multiplier="0.6" id="ZeN-qe-ADu"/>
+                            <constraint firstItem="9Yo-GD-WZc" firstAttribute="height" secondItem="0Jt-A1-uuq" secondAttribute="height" multiplier="0.2" id="tY4-2p-3dM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="buW-lR-WSC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="925" y="76"/>
+        </scene>
     </scenes>
     <resources>
         <image name="1" width="322" height="2"/>
@@ -612,6 +682,7 @@
         <image name="logo_small" width="150" height="54"/>
         <image name="mega_win" width="140.5" height="117"/>
         <image name="rays" width="426.5" height="266.5"/>
+        <image name="screen" width="426.5" height="266.5"/>
         <image name="start_active_btn" width="68" height="68"/>
         <image name="start_btn" width="68" height="68"/>
         <image name="tablo" width="95" height="32"/>
