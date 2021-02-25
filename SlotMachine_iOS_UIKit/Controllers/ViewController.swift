@@ -78,11 +78,25 @@ class ViewController: UIViewController {
         centerTopImage.layer.transform = topPerspectiveTransform
         rightTopImage.layer.transform = topPerspectiveTransform
 
-        betLabel.text = String(bet)
-        coinsLabel.text = String(coins)
-        jackpotLabel.text = String(jackpot)
+        loadJackpot()
     }
-    
+    func loadJackpot() {
+        db.collection(Constants.collectionName).order(by: "jackpot", descending: true).limit(to: 1).addSnapshotListener{ (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    if let newJackpot = data["jackpot"] as? Int{
+                        self.jackpot = newJackpot
+                        DispatchQueue.main.async {
+                            self.reset()
+                        }
+                    }
+                }
+            }
+        }
+    }
     func reset() {
         /**  This block of code here is to reset the images and labels after winning or losing **/
 
@@ -831,7 +845,18 @@ class ViewController: UIViewController {
             }
             print("lose")
         }
+        //MARK: - update jackpot
         if winnings > jackpot {
+            db.collection(Constants.collectionName).addDocument(data: [
+                "jackpot":winnings,
+                ]){(error) in
+                    if let e = error{
+                        print("error saving data: \(e)")
+                    }
+                    else{
+                        print("data saved successfully")
+                    }
+                }
             jackpot = winnings
             jackpotLabel.text = String(jackpot)
         }

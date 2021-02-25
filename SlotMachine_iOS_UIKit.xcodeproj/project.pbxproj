@@ -17,6 +17,7 @@
 		B649315B25BB859A00BAF03F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B649315A25BB859A00BAF03F /* Assets.xcassets */; };
 		B649315E25BB859A00BAF03F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B649315C25BB859A00BAF03F /* LaunchScreen.storyboard */; };
 		B66EECFB25E710A100757060 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B66EECFA25E710A100757060 /* GoogleService-Info.plist */; };
+		B677F59725E8485600B81734 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B677F59625E8485600B81734 /* Constants.swift */; };
 		B6BA825025DEF3220033C8C0 /* small_win.wav in Resources */ = {isa = PBXBuildFile; fileRef = B6BA824F25DEF3220033C8C0 /* small_win.wav */; };
 		B6BA825325E05ADF0033C8C0 /* win3_not_middle.wav in Resources */ = {isa = PBXBuildFile; fileRef = B6BA825225E05ADF0033C8C0 /* win3_not_middle.wav */; };
 		B6BB90CD25E5E559006C9062 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BB90CC25E5E559006C9062 /* MenuViewController.swift */; };
@@ -41,6 +42,7 @@
 		B649315D25BB859A00BAF03F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B649315F25BB859A00BAF03F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B66EECFA25E710A100757060 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B677F59625E8485600B81734 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B6BA824F25DEF3220033C8C0 /* small_win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = small_win.wav; sourceTree = "<group>"; };
 		B6BA825225E05ADF0033C8C0 /* win3_not_middle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win3_not_middle.wav; sourceTree = "<group>"; };
 		B6BB90CC25E5E559006C9062 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				B649316C25BCCDCF00BAF03F /* Controllers */,
 				B649316B25BCCDC600BAF03F /* Views */,
 				B649315A25BB859A00BAF03F /* Assets.xcassets */,
+				B677F59625E8485600B81734 /* Constants.swift */,
 				B649315C25BB859A00BAF03F /* LaunchScreen.storyboard */,
 				B649315F25BB859A00BAF03F /* Info.plist */,
 				B66EECFA25E710A100757060 /* GoogleService-Info.plist */,
@@ -260,6 +263,7 @@
 				B649315225BB859700BAF03F /* AppDelegate.swift in Sources */,
 				B649315425BB859700BAF03F /* SceneDelegate.swift in Sources */,
 				B6BB90CD25E5E559006C9062 /* MenuViewController.swift in Sources */,
+				B677F59725E8485600B81734 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
