@@ -81,20 +81,21 @@ class ViewController: UIViewController {
         loadJackpot()
     }
     func loadJackpot() {
-        db.collection(Constants.collectionName).order(by: "jackpot", descending: true).limit(to: 1).addSnapshotListener{ (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    let data = document.data()
-                    if let newJackpot = data["jackpot"] as? Int{
-                        self.jackpot = newJackpot
-                        DispatchQueue.main.async {
-                            self.reset()
-                        }
-                    }
-                }
-            }
+        db.collection(Constants.collectionName).document("global_jackpot")
+        .addSnapshotListener { documentSnapshot, error in
+          guard let document = documentSnapshot else {
+            print("Error fetching document: \(error!)")
+            return
+          }
+          guard let data = document.data() else {
+            print("Document data was empty.")
+            return
+          }
+            DispatchQueue.main.async {
+                self.jackpot = data["value"] as! Int
+                self.jackpotLabel.text = String(self.jackpot)
+        }
+          print("Current data: \(data)")
         }
     }
     func reset() {
@@ -250,7 +251,8 @@ class ViewController: UIViewController {
                     
                     
                     imageView.image = UIImage(named: chosenImage)
-                    //self.alwaysWin(imageView: image)
+                    //MARK: - always win
+                    //self.alwaysWin(imageView: imageView, jackpot: true)
                     if imageView == images[1]
                     {
                         var frame = imageView.frame
@@ -291,10 +293,15 @@ class ViewController: UIViewController {
         )
     }
     
-    func alwaysWin(imageView: UIImageView) {
+    func alwaysWin(imageView: UIImageView, jackpot: Bool) {
         /**  This block of code here is to  win everytime for debugging purposes**/
 
-        imageView.image = leftReel[0]
+        if jackpot {
+            imageView.image = #imageLiteral(resourceName: "icon_7")
+        }
+        else{
+            imageView.image = #imageLiteral(resourceName: "icon_1")
+        }
     }
     
     @IBAction func startPressed(_ sender: UIButton) {
@@ -318,6 +325,19 @@ class ViewController: UIViewController {
         else{
             coins = coins - bet
             coinsLabel.text = String(coins)
+            jackpot += bet
+            db.collection(Constants.collectionName).document("global_jackpot").setData([
+                "value":jackpot,
+                ]){(error) in
+                    if let e = error{
+                        print("error saving data: \(e)")
+                    }
+                    else{
+                        print("data saved successfully")
+                    }
+                }
+            loadJackpot()
+            jackpotLabel.text = String(jackpot)
             reset()
             sender.isUserInteractionEnabled = false
             sender.setImage(#imageLiteral(resourceName: "start_active_btn"), for: .normal)
@@ -591,6 +611,17 @@ class ViewController: UIViewController {
                 middleReelLine.alpha = 1
                 
                 winnings += jackpot
+                db.collection(Constants.collectionName).document("global_jackpot").setData([
+                    "value":0,
+                    ]){(error) in
+                        if let e = error{
+                            print("error saving data: \(e)")
+                        }
+                        else{
+                            print("data saved successfully")
+                        }
+                    }
+                
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
@@ -844,21 +875,6 @@ class ViewController: UIViewController {
                 bottomReelLine.alpha = 1
             }
             print("lose")
-        }
-        //MARK: - update jackpot
-        if winnings > jackpot {
-            db.collection(Constants.collectionName).addDocument(data: [
-                "jackpot":winnings,
-                ]){(error) in
-                    if let e = error{
-                        print("error saving data: \(e)")
-                    }
-                    else{
-                        print("data saved successfully")
-                    }
-                }
-            jackpot = winnings
-            jackpotLabel.text = String(jackpot)
         }
     }
     //MARK: - sounds
