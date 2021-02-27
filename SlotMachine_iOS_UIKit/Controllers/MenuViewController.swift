@@ -39,6 +39,9 @@ class MenuViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "YES", style: UIAlertAction.Style.default, handler: { [self] (UIAlertAction) in
                 parentVC.bet = 10
                 parentVC.coins = 100
+                parentVC.highestScore = 0
+                parentVC.defaults.set(String(parentVC.highestScore), forKey: Constants.savedHighest)
+                parentVC.defaults.set(String(parentVC.coins), forKey: Constants.savedCoins)
                 parentVC.reset()
                 playSound(soundName: "remove_menu.wav")
                 self.dismiss(animated: true, completion: nil)

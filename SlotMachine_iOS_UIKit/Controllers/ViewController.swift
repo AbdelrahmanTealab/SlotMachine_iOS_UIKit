@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var coinsLabel: UILabel!
     @IBOutlet weak var jackpotLabel: UILabel!
     @IBOutlet weak var betLabel: UILabel!
+    @IBOutlet weak var highestScoreLabel: UILabel!
     @IBOutlet weak var winJackpotImage: UIImageView!
     @IBOutlet weak var raysJackpotImage: UIImageView!
     
@@ -48,10 +49,12 @@ class ViewController: UIViewController {
     
     var bet = 10
     var coins = 100
+    var highestScore = 0
     var jackpot = 5000
     var winnings = 0
 
     let db = Firestore.firestore()
+    let defaults = UserDefaults.standard
     var player: AVAudioPlayer?
     var betTimer: Timer?
     var timeAtPress: Date?
@@ -77,7 +80,7 @@ class ViewController: UIViewController {
         leftTopImage.layer.transform = topPerspectiveTransform
         centerTopImage.layer.transform = topPerspectiveTransform
         rightTopImage.layer.transform = topPerspectiveTransform
-
+        
         loadJackpot()
     }
     func loadJackpot() {
@@ -100,6 +103,13 @@ class ViewController: UIViewController {
     }
     func reset() {
         /**  This block of code here is to reset the images and labels after winning or losing **/
+        
+        if let newCoins = defaults.string(forKey: Constants.savedCoins) {
+            coins = Int(newCoins)!
+        }
+        if let newHighestScore = defaults.string(forKey: Constants.savedHighest) {
+            highestScore = Int(newHighestScore)!
+        }
 
         winJackpotImage.image = nil
         raysJackpotImage.image = nil
@@ -116,6 +126,7 @@ class ViewController: UIViewController {
         coinsLabel.text = String(coins)
         betLabel.text = String(bet)
         jackpotLabel.text = String(jackpot)
+        highestScoreLabel.text = String(highestScore)
     }
     
     
@@ -312,10 +323,12 @@ class ViewController: UIViewController {
             
             alert.addAction(UIAlertAction(title: "Buy ALL", style: UIAlertAction.Style.default, handler: { [self] (UIAlertAction) in
                 coins += bet-coins
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
             }))
             alert.addAction(UIAlertAction(title: "Buy 100 coin", style: UIAlertAction.Style.default, handler: { [self] (UIAlertAction) in
                 coins += 100
+                defaults.set(coins, forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler:nil))
@@ -325,6 +338,8 @@ class ViewController: UIViewController {
         else{
             coins = coins - bet
             coinsLabel.text = String(coins)
+            defaults.set(String(coins), forKey: Constants.savedCoins)
+
             jackpot += bet
             db.collection(Constants.collectionName).document("global_jackpot").setData([
                 "value":jackpot,
@@ -391,6 +406,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
             }
             else {
@@ -400,6 +416,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
                 if reel == "top"{
                     topReelLine.image = #imageLiteral(resourceName: "1")
@@ -429,6 +446,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
             }
             else {
@@ -438,6 +456,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
                 if reel == "top"{
                     topReelLine.image = #imageLiteral(resourceName: "1")
@@ -466,6 +485,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
             }
             else {
@@ -475,6 +495,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
                 if reel == "top"{
                     topReelLine.image = #imageLiteral(resourceName: "1")
@@ -503,6 +524,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
             }
             else {
@@ -512,6 +534,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
                 if reel == "top"{
                     topReelLine.image = #imageLiteral(resourceName: "1")
@@ -540,6 +563,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
             }
             else {
@@ -549,6 +573,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
                 if reel == "top"{
                     topReelLine.image = #imageLiteral(resourceName: "1")
@@ -577,6 +602,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
             }
             else {
@@ -586,6 +612,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
                 if reel == "top"{
                     topReelLine.image = #imageLiteral(resourceName: "1")
@@ -625,6 +652,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
             }
             else {
@@ -634,6 +662,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
                 if reel == "top"{
                     topReelLine.image = #imageLiteral(resourceName: "1")
@@ -662,6 +691,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
             }
             else {
@@ -671,6 +701,7 @@ class ViewController: UIViewController {
                 coinGained.text = "+\(winnings)"
                 animateCoinsGained()
                 coins += winnings
+                defaults.set(String(coins), forKey: Constants.savedCoins)
                 coinsLabel.text = String(coins)
                 if reel == "top"{
                     topReelLine.image = #imageLiteral(resourceName: "1")
@@ -691,6 +722,7 @@ class ViewController: UIViewController {
             coinGained.text = "+\(winnings)"
             animateCoinsGained()
             coins += winnings
+            defaults.set(String(coins), forKey: Constants.savedCoins)
             coinsLabel.text = String(coins)
             if reel == "top" {
                 topReelLine.image = #imageLiteral(resourceName: "1")
@@ -713,6 +745,7 @@ class ViewController: UIViewController {
             coinGained.text = "+\(winnings)"
             animateCoinsGained()
             coins += winnings
+            defaults.set(String(coins), forKey: Constants.savedCoins)
             coinsLabel.text = String(coins)
             if reel == "top" {
                 topReelLine.image = #imageLiteral(resourceName: "1")
@@ -735,6 +768,7 @@ class ViewController: UIViewController {
             coinGained.text = "+\(winnings)"
             animateCoinsGained()
             coins += winnings
+            defaults.set(String(coins), forKey: Constants.savedCoins)
             coinsLabel.text = String(coins)
             if reel == "top" {
                 topReelLine.image = #imageLiteral(resourceName: "1")
@@ -757,6 +791,7 @@ class ViewController: UIViewController {
             coinGained.text = "+\(winnings)"
             animateCoinsGained()
             coins += winnings
+            defaults.set(String(coins), forKey: Constants.savedCoins)
             coinsLabel.text = String(coins)
             if reel == "top" {
                 topReelLine.image = #imageLiteral(resourceName: "1")
@@ -779,6 +814,7 @@ class ViewController: UIViewController {
             coinGained.text = "+\(winnings)"
             animateCoinsGained()
             coins += winnings
+            defaults.set(String(coins), forKey: Constants.savedCoins)
             coinsLabel.text = String(coins)
             if reel == "top" {
                 topReelLine.image = #imageLiteral(resourceName: "1")
@@ -801,6 +837,7 @@ class ViewController: UIViewController {
             coinGained.text = "+\(winnings)"
             animateCoinsGained()
             coins += winnings
+            defaults.set(String(coins), forKey: Constants.savedCoins)
             coinsLabel.text = String(coins)
             if reel == "top" {
                 topReelLine.image = #imageLiteral(resourceName: "1")
@@ -823,6 +860,7 @@ class ViewController: UIViewController {
             coinGained.text = "+\(winnings)"
             animateCoinsGained()
             coins += winnings
+            defaults.set(String(coins), forKey: Constants.savedCoins)
             coinsLabel.text = String(coins)
             if reel == "top" {
                 topReelLine.image = #imageLiteral(resourceName: "1")
@@ -845,6 +883,7 @@ class ViewController: UIViewController {
             coinGained.text = "+\(winnings)"
             animateCoinsGained()
             coins += winnings
+            defaults.set(String(coins), forKey: Constants.savedCoins)
             coinsLabel.text = String(coins)
             if reel == "top" {
                 topReelLine.image = #imageLiteral(resourceName: "1")
@@ -875,6 +914,11 @@ class ViewController: UIViewController {
                 bottomReelLine.alpha = 1
             }
             print("lose")
+        }
+        if winnings > highestScore {
+            highestScore = winnings
+            defaults.set(String(highestScore), forKey: Constants.savedHighest)
+            highestScoreLabel.text = String(highestScore)
         }
     }
     //MARK: - sounds

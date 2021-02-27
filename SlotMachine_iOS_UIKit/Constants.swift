@@ -9,4 +9,6 @@ import Foundation
 
 struct Constants {
     static let collectionName = "jackpots"
+    static let savedCoins = "coins"
+    static let savedHighest = "highest"
 }
