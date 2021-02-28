@@ -27,7 +27,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="RTg-wl-4S3" secondAttribute="height" multiplier="1:1" id="JaG-N4-14I"/>
                                         </constraints>
-                                        <state key="normal" title="↺" image="circle_btn" backgroundImage="circle_btn"/>
+                                        <state key="normal" image="circle_btn"/>
                                         <state key="highlighted" image="circle_btn_active"/>
                                         <connections>
                                             <action selector="menuPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7OA-5h-gac"/>
@@ -922,8 +922,8 @@
         <image name="arrow_forward_active" width="19.5" height="56"/>
         <image name="b2" width="59" height="9"/>
         <image name="blue" width="317" height="118"/>
-        <image name="circle_btn" width="68" height="68"/>
-        <image name="circle_btn_active" width="68" height="68"/>
+        <image name="circle_btn" width="22.5" height="22.5"/>
+        <image name="circle_btn_active" width="22.5" height="22.5"/>
         <image name="close" width="22" height="22"/>
         <image name="close_active" width="22" height="22"/>
         <image name="coin" width="933.5" height="1024.5"/>
