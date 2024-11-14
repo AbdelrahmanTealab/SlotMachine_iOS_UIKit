@@ -10,7 +10,13 @@
 #endif
 #endif
 
+#import "GULAppEnvironmentUtil.h"
+#import "GULKeychainStorage.h"
+#import "GULKeychainUtils.h"
+#import "GULNetworkInfo.h"
+#import "GULLogger.h"
 #import "GULLoggerLevel.h"
+#import "GULNSData+zlib.h"
 
 FOUNDATION_EXPORT double GoogleUtilitiesVersionNumber;
 FOUNDATION_EXPORT const unsigned char GoogleUtilitiesVersionString[];

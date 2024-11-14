@@ -1,10 +1,11 @@
 ![Spruce Logo](https://github.com/willowtreeapps/spruce-ios/raw/master/imgs/header_image.png)
 
-# Spruce iOS Animation Library
+# Spruce iOS Animation Library (and [Android](https://github.com/willowtreeapps/spruce-android))
 
 [![CircleCI Build Status](https://circleci.com/gh/willowtreeapps/spruce-ios.svg?style=shield)](https://circleci.com/gh/willowtreeapps/spruce-ios)
+[![Coverage Status](https://coveralls.io/repos/github/willowtreeapps/spruce-ios/badge.svg?branch=master)](https://coveralls.io/github/willowtreeapps/spruce-ios?branch=master)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![CocoaPods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat)](https://github.com/CocoaPods/CocoaPods)
+[![CocoaPods compatible](https://img.shields.io/badge/pod-v1.0.0-4BC51D.svg)](https://github.com/CocoaPods/CocoaPods)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)]()
 [![Public Yes](https://img.shields.io/badge/Public-yes-green.svg?style=flat)]()
 
@@ -22,7 +23,7 @@ To make everything super easy, we currently support both CocoaPods and Carthage.
 Add the following to your `Podfile`.
 
 ```
-pod "Spruce", :git => "https://github.com/willowtreeapps/spruce-ios"
+pod "Spruce", '~> 1.0.0'
 ```
 
 ### Carthage
@@ -172,4 +173,4 @@ If you have a feature idea submit an issue with a feature request or submit a pu
 
 We build apps, responsive sites, bots—any digital product that lives on a screen—for the world’s leading companies. Our elite teams challenge themselves to build extraordinary experiences by bridging the latest strategy and design thinking with enterprise-grade software development.
 
-Interested in working on more unique projects like Spruce? Check out our [careers page](http://willowtreeapps.com/careers).
+Interested in working on more unique projects like Spruce? Check out our [careers page](http://willowtreeapps.com/careers?utm_campaign=spruce-gh).
